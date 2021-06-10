@@ -3,7 +3,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from CSRF import token
+
 
 # Create your views here.
 
@@ -12,7 +12,7 @@ def index(request):
 
 
 def registerPage(request):
-    form = UserCreationForm()
+    form = UserCreationForm(request.POST)
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
