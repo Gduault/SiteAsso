@@ -9,15 +9,17 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 import os
 
-import pymysql
+#import pymysql
 
-pymysql.install_as_MySQLdb()
+#pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf.global_settings import STATICFILES_DIRS
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -83,7 +85,7 @@ DATABASES = {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'asso_plonge',
             'USER': 'root',
-            'PASSWORD': 'root',
+            'PASSWORD': '',
             'HOST': 'localhost',
             'PORT': '3306',
     }
@@ -123,7 +125,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('static')),)
+
 STATIC_URL = '/static/'
+STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage',
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
