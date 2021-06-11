@@ -33,8 +33,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-# définit le modèle utilisateur à utiliser pour le système d'authentification
-AUTH_USER_MODEL = 'corp.Adherent'
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
