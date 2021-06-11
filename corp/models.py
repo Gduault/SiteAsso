@@ -77,3 +77,11 @@ class Type_Evenement(models.Model):
     ID_ADHERENT = models.ForeignKey(Adherent, on_delete=models.CASCADE)
     ID_EVENEMENT = models.ForeignKey(Evenement, on_delete=models.CASCADE)
     NOM_EVENEMENT = models.CharField(max_length=30)
+
+class carousel(models.Model):
+    image = models.ImageField(upload_to='static/img/')
+    title = models.CharField(max_length=250)
+    sub_title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
