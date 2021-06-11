@@ -33,6 +33,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# définit le modèle utilisateur à utiliser pour le système d'authentification
+AUTH_USER_MODEL = 'corp.Adherent'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Ajout de l'appication corp
     'corp.apps.CorpConfig',
 ]
 
@@ -78,14 +82,16 @@ WSGI_APPLICATION = 'SiteAsso.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Ajout de la base de donnee mysql
+# Utilisation d'un serveur MAMP ou WAMP ou XAMMP pour mysql
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'asso_plonge',
-            'USER': 'root',
-            'PASSWORD': 'root',
-            'HOST': 'localhost',
-            'PORT': '3306',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'asso_plonge',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -129,5 +135,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-

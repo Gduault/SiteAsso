@@ -3,6 +3,7 @@
 from django.db import migrations, models
 import django.db.models.deletion
 
+# Fichier cree automatiquement apres un python3 manage.py makemigration
 
 class Migration(migrations.Migration):
 

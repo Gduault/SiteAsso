@@ -18,6 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    # Lien vers le site django administraion,
+    # pour y acceder changer l'url comme ceci http://127.0.0.1:8000/admin/
     path('admin/', admin.site.urls),
+    # Lien vers l'application corp
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/
     path('corp/', include('corp.urls')),
 ]
