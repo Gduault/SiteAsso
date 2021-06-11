@@ -18,6 +18,8 @@ import pymysql
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import evenement.apps
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Ajout de l'appication corp
     'corp.apps.CorpConfig',
+    'evenement.apps.EvenementConfig',
 ]
 
 MIDDLEWARE = [

@@ -24,4 +24,5 @@ urlpatterns = [
     # Lien vers l'application corp
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/
     path('corp/', include('corp.urls')),
+    path('evenement/', include('evenement.urls')),
 ]
