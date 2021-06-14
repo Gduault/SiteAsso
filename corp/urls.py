@@ -9,4 +9,7 @@ urlpatterns = [
 	# Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/register/
 	path('register/', views.registerPage, name='register'),
 
+	#page non fonctionnelle ; a revoir
+	path('carousel/', views.carousel, name='caroussel'),
+
 ]
