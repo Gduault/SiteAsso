@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'corp.apps.CorpConfig',
     'evenement.apps.EvenementConfig',
     'accounts.apps.AccountsConfig',
+    'annuaire.apps.AnnuaireConfig',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
