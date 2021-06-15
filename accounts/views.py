@@ -1,4 +1,4 @@
-import requests
+
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -15,7 +15,7 @@ def register(request):
         return redirect('corp:index')
 
     if request.method == 'POST':
-        form = UserForm(requests.post)
+        form = UserForm(request.post)
         if form.is_valid():
             form.save()
     else:
