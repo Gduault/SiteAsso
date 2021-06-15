@@ -17,17 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-
 urlpatterns = [
     # Lien vers le site django administraion,
     # pour y acceder changer l'url comme ceci http://127.0.0.1:8000/admin/
     path('admin/', admin.site.urls),
     # Lien vers l'application corp
-    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/
-    path('', include('corp.urls')),
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/
+    path('corp/', include('corp.urls')),
     # Lien vers l'application evenement
-    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/evenement
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/evenement/
     path('evenement/', include('evenement.urls')),
+    # Lien vers l'application annuaire
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/annuaire/
+    path('annuaire/', include('annuaire.urls'))
     # Lien vers l'application accounts
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/accounts
     path('accounts/', include('accounts.urls')),

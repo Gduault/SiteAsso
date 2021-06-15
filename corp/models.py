@@ -21,6 +21,7 @@ class Assurance_Complementaire(models.Model):
     NB_CHEQUE = models.IntegerField()
     # Le montant sera le montant total pour payer l'assurance complementaire
     MONTANT = models.IntegerField()
+    # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications
 
 
 # Creation de la classe Certif_Medical qui contiendra la date de debut et de fin du certificat medical
@@ -30,6 +31,7 @@ class Certif_Medical(models.Model):
     D_DEBUT = models.DateField()
     # La date de fin est la fin du certificat medical, si elle est depasser il faudra le mettre a jour
     D_FIN = models.DateField()
+    # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications
 
 
 # Creation de la classe Adherent qui contiendra plusieurs informations personnel sur l'adherent tel que sont nom,
@@ -109,6 +111,7 @@ class Adherent(models.Model):
     LOC_STAB = models.BooleanField()
     # Soit il a loue un BLOC = True sinon = False
     LOC_BLOC = models.BooleanField()
+    # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications
 
 
 class Evenement(models.Model):
@@ -118,17 +121,25 @@ class Evenement(models.Model):
     DATE = models.DateField()
     NB_PERS = models.IntegerField()
     ETAT_EVENEMENT = models.BooleanField(default=False)
+    # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications
+
 
 
 class Type_Evenement(models.Model):
     ID_ADHERENT = models.ForeignKey(Adherent, on_delete=models.CASCADE)
     ID_EVENEMENT = models.ForeignKey(Evenement, on_delete=models.CASCADE)
     NOM_EVENEMENT = models.CharField(max_length=30)
+    # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications
+
 
 class carousel(models.Model):
+    #image insérez dans le caroussel
     image = models.ImageField(upload_to='static/img/')
+    # titre potentiel écris en bas de l'image
     title = models.CharField(max_length=250)
+    # sous titre potentiel écris en dessous du titre
     sub_title = models.CharField(max_length=100)
-
+    # retourne la valeur du titre
     def __str__(self):
         return self.title
+    # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications
