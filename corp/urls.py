@@ -11,4 +11,7 @@ urlpatterns = [
     # Lien pour se conneceter au site
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/login/
 
+	#page non fonctionnelle ; a revoir
+	path('carousel/', views.carousel, name='caroussel'),
+
 ]
