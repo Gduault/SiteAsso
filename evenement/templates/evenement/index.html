@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 
 <style >
     .event{
@@ -40,12 +38,12 @@ class ="section" >
             <div class ="field has-addons" >
                 <p class ="control" >
                     <a class ="button" >
-                        <span class ="icon" > < i class ="fas fa-chevron-left" > < / i > </span >
+                        <span class ="icon" > <i class ="fas fa-chevron-left" > </i > </span >
                     </a >
                 </p >
                 <p class ="control" >
                     <a class ="button" >
-                        Semaine du {{week_dates .0 | date: "d/m"}} au {{week_dates.6 | date: "d/m"}}
+                        Semaine du {{ week_dates.0|date:"d/m" }} au {{ week_dates.6|date:"d/m" }}
                     </a >
                 </p >
                 <p class ="control" >
@@ -71,15 +69,15 @@ class ="section" >
                     <tr >
                         <th {% if forloop.first and group.2.1 %} style = "border-bottom: none;"{% endif %} >
                         {% if forloop.first %}
-                            {{group.1}} {{group.0 | date: "d/m"}}
+                            {{group.1}} {{group.0|date:"d/m"}}
                         {% endif %}
                     </th >
-                    {%for data in row %}
+                    {% for data in row %}
                         <td colspan="{{ data|datacolspan }}">
                             {% if data.2 %}
                                 <article class ="tile is-child notification is-primary event" >
-                                    <p class ="title is-size-5" > {{data.2.title}} < / p >
-                                    <p class ="subtitle is-size-6" > {{data.2.start | date:"H:i"}} - {{data.2.end | date: "H:i"}} < / p >
+                                    <p class ="title is-size-5" > {{data.2.title}} </p >
+                                    <p class ="subtitle is-size-6" > {{data.2.start|date:"H:i"}} - {{data.2.end|date:"H:i"}} </p>
                                 </article >
                             {% endif %}
                         </td >
