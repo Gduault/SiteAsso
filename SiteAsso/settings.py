@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
+import pymysql
 
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import evenement.apps
@@ -40,18 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Ajout de l'appication corp
     'corp.apps.CorpConfig',
-    # Ajout de l'application pour l'agenda d'évenement
     'evenement.apps.EvenementConfig',
-
     'accounts.apps.AccountsConfig',
-    # Ajout de l'appication notification
-    'notif.apps.NotifConfig',
-
 ]
-
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,18 +82,14 @@ WSGI_APPLICATION = 'SiteAsso.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# Ajout de la base de donnee mysql
-# Utilisation d'un serveur MAMP ou WAMP ou XAMMP pour mysql
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'asso_plonge',
-        'USER': 'root',
-        'PASSWORD': '12',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
+DATABASES = dict(default={
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'asso_plonge',
+    'USER': 'root',
+    'PASSWORD': 'root',
+    'HOST': 'localhost',
+    'PORT': '3306',
+})
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -122,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'fr-fr'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
