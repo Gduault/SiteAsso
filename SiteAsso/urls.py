@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Lien vers l'application corp
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/
-    path('corp/', include('corp.urls')),
+    path('', include('corp.urls')),
     # Lien vers l'application evenement
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/evenement/
     path('evenement/', include('evenement.urls')),

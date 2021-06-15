@@ -18,6 +18,7 @@ import os
 #pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import accounts.apps
 import evenement.apps
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corp.apps.CorpConfig',
     'evenement.apps.EvenementConfig',
+    'accounts.apps.AccountsConfig',
+    'annuaire.apps.AnnuaireConfig',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +134,4 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+LOGIN_REDIRECT_URL = 'corp:index'
