@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'corp.apps.CorpConfig',
     # Ajout de l'application pour l'agenda d'évenement
     'evenement.apps.EvenementConfig',
+
     'accounts.apps.AccountsConfig',
+    # Ajout de l'appication notification
+    'notif.apps.NotifConfig',
 
 ]
 
