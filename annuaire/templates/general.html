@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>annuaire générale</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -12,34 +13,94 @@
 <br>
 <body>
  <br><br><br><br>
-<div class="container">
-  <h2>Annuaire classique</h2>
+<div class="table-responsive">
+  <h2>Annuaire général</h2>
   <table class="table">
     <thead class="thead-dark">
       <tr>
+        <th>Photo</th>
+        <th>Civilité</th>
         <th>Nom</th>
-        <th>Prénom</th>
-        <th>Email</th>
+          <th>Prénom</th>
+          <th>Rôle</th>
+          <th>Clé du moulin</th>
+          <th>Email</th>
+          <th>Status</th>
+          <th>Lieu de naissance</th>
+          <th>Date de naissance</th>
+          <th>Téléphone fixe</th>
+          <th>Téléphone portable</th>
+          <th>Remarque</th>
+          <th>Fonction</th>
+          <th>Membre du CA</th>
+          <th>Numéro de license</th>
+          <th>Type de license</th>
+          <th>Assurance complémentaire</th>
+          <th>Club</th>
+          <th>Date d'inscription</th>
+          <th>Adresse 1</th>
+          <th>Adresse 2</th>
+          <th>Adresse 3</th>
+          <th>Code postal</th>
+          <th>Ville</th>
+          <th>Pays</th>
+          <th>Personne à contacté</th>
+          <th>Numéro de la personne à contacté</th>
+          <th>Allergie</th>
+          <th>Medecin référent</th>
+          <th>Numéro du medecin</th>
+          <th>Date de reglement</th>
+          <th>Mode de paiement</th>
+          <th>Nombre de chèque</th>
+          <th>Montant</th>
+          <th>Adhesion</th>
+          <th>Location detendeur</th>
+          <th>Location stab</th>
       </tr>
     </thead>
     <tbody>
-    </thead>
     <tbody>
-      <tr>
-        <td>Raefskov</td>
-        <td>Ghri</td>
-        <td>raefskov@yahoo.com</td>
-      </tr>
-      <tr>
-        <td>Hadil</td>
-        <td>Ghri</td>
-        <td>hadil@yahoo.com</td>
-      </tr>
-      <tr>
-        <td>Hedi</td>
-        <td>Barak</td>
-        <td>hedibarak@yahoo.com</td>
-      </tr>
+      <tr>{% for adherent in adherents %}
+          <td>{{ adherent.PHOTO }}</td>
+          <td>{{ adherent.CIVILITE }}</td>
+          <td>{{ adherent.NOM }}</td>
+          <td>{{ adherent.PRENOM }}</td>
+          <td>{{ adherent.ROLE_ADHERENT }}</td>
+          <td>{{ adherent.CLE_MOULIN }}</td>
+          <td>{{ adherent.EMAIL }}</td>
+          <td>{{ adherent.STATUS }}</td>
+          <td>{{ adherent.LIEU_NAISSANCE }}</td>
+          <td>{{ adherent.DATE_NAISSANCE }}</td>
+          <td>{{ adherent.TEL_FIXE }}</td>
+          <td>{{ adherent.TEL_PORT }}</td>
+          <td>{{ adherent.REMARQUE }}</td>
+          <td>{{ adherent.FONCTION }}</td>
+          <td>{{ adherent.MBCA }}</td>
+          <td>{{ adherent.NUM_LICENSE }}</td>
+          <td>{{ adherent.TYPE_LICENSE }}</td>
+          <td>{{ adherent.ASSURANCE_COMP }}</td>
+          <td>{{ adherent.CLUB }}</td>
+          <td>{{ adherent.DATE_INSCRIPTION }}</td>
+          <td>{{ adherent.ADD1 }}</td>
+          <td>{{ adherent.ADD2 }}</td>
+          <td>{{ adherent.ADD3 }}</td>
+          <td>{{ adherent.CP }}</td>
+          <td>{{ adherent.VILLE }}</td>
+          <td>{{ adherent.PAYS }}</td>
+          <td>{{ adherent.PER_CONTACT }}</td>
+          <td>{{ adherent.NUM_PER_CONTACT }}</td>
+          <td>{{ adherent.ALLERGIE }}</td>
+          <td>{{ adherent.MDC_REF }}</td>
+          <td>{{ adherent.NUM_TEL_MDC }}</td>
+          <td>{{ adherent.DATE_RGL }}</td>
+          <td>{{ adherent.MODE_PAIEMENT }}</td>
+          <td>{{ adherent.NB_CHEQUE }}</td>
+          <td>{{ adherent.MONTANT }}</td>
+          <td>{{ adherent.ADHESION }}</td>
+          <td>{{ adherent.LICENSE }}</td>
+          <td>{{ adherent.LOC_DETENTEUR }}</td>
+          <td>{{ adherent.LOC_STAB }}</td>
+      </tr>{% endfor %}
     </tbody>
   </table>
 </div>

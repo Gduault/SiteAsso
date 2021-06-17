@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>annuaire classique</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -17,29 +18,26 @@
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Email</th>
+          <th>Photo</th>
+          <th>civilité</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Rôle</th>
+          <th>Clé du moulin</th>
+          <th>Email</th>
       </tr>
     </thead>
     <tbody>
-    </thead>
     <tbody>
-      <tr>
-        <td>Raefskov</td>
-        <td>Ghri</td>
-        <td>raefskov@yahoo.com</td>
-      </tr>
-      <tr>
-        <td>Hadil</td>
-        <td>Ghri</td>
-        <td>hadil@yahoo.com</td>
-      </tr>
-      <tr>
-        <td>Hedi</td>
-        <td>Barak</td>
-        <td>hedibarak@yahoo.com</td>
-      </tr>
+      <tr>{% for adherent in adherents %}
+          <td>{{ adherent.PHOTO }}</td>
+          <td>{{ adherent.CIVILITE }}</td>
+          <td>{{ adherent.NOM }}</td>
+          <td>{{ adherent.PRENOM }}</td>
+          <td>{{ adherent.ROLE_ADHERENT }}</td>
+          <td>{{ adherent.CLE_MOULIN }}</td>
+          <td>{{ adherent.EMAIL }}</td>
+      </tr>{% endfor %}
     </tbody>
   </table>
 </div>

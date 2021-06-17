@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>annuaire sécurité</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -13,33 +14,34 @@
 <body>
  <br><br><br><br>
 <div class="container">
-  <h2>Annuaire classique</h2>
+  <h2>Annuaire de sécurité</h2>
   <table class="table">
     <thead class="thead-dark">
       <tr>
+        <th>Photo</th>
         <th>Nom</th>
         <th>Prénom</th>
-        <th>Email</th>
+          <th>Remarque.s</th>
+          <th>Allergie</th>
+          <th>Personne à contacté</th>
+          <th>Numéro de la personne à contacté</th>
+          <th>Médecin référent</th>
+          <th>Numéro du médecin</th>
       </tr>
     </thead>
     <tbody>
-    </thead>
     <tbody>
-      <tr>
-        <td>Raefskov</td>
-        <td>Ghri</td>
-        <td>raefskov@yahoo.com</td>
-      </tr>
-      <tr>
-        <td>Hadil</td>
-        <td>Ghri</td>
-        <td>hadil@yahoo.com</td>
-      </tr>
-      <tr>
-        <td>Hedi</td>
-        <td>Barak</td>
-        <td>hedibarak@yahoo.com</td>
-      </tr>
+      <tr>{% for adherent in adherents %}
+        <td>{{ adherent.PHOTO }}</td>
+        <td>{{ adherent.NOM }}</td>
+        <td>{{ adherent.PRENOM }}</td>
+          <td>{{ adherent.REMARQUE }}</td>
+          <td>{{ adherent.ALLERGIE }}</td>
+          <td>{{ adherent.PER_CONTACT }}</td>
+          <td>{{ adherent.NUM_PER_CONTACT }}</td>
+          <td>{{ adherent.MDC_REF }}</td>
+          <td>{{ adherent.NUM_TEL_MDC }}</td>
+      </tr>{% endfor %}
     </tbody>
   </table>
 </div>
