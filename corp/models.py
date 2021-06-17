@@ -1,14 +1,12 @@
 from django.db import models
 
-# Create your models here.
-from datetime import datetime
 
 from django.db import models
-
-
 # Creation de la classe Assurance_Complementaire qui permetra a l'utilisateur de renseigner plusieurs champ
 # Tel que le nom de l'assurance, la date du reglement, avec quel mode de paiement, le nombre de cheque il fallu pour
 # Payer et le montant
+
+
 class Assurance_Complementaire(models.Model):
     # champ de caractere et qui peut contenir 30 caractere
     NOM_ASSURANCE = models.CharField(max_length=30)
