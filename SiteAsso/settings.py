@@ -18,7 +18,6 @@ import os
 #pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import accounts.apps
 import evenement.apps
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,8 +46,9 @@ INSTALLED_APPS = [
     'evenement.apps.EvenementConfig',
     'accounts.apps.AccountsConfig',
     'annuaire.apps.AnnuaireConfig',
+    'gestion_membre.apps.GestionMembreConfig',
+    'notif.apps.NotifConfig',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -88,7 +88,7 @@ DATABASES = dict(default={
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'asso_plonge',
     'USER': 'root',
-    'PASSWORD': '',
+    'PASSWORD': '12',
     'HOST': 'localhost',
     'PORT': '3306',
 })
