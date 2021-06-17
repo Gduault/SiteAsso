@@ -6,4 +6,5 @@ app_name = 'gestion'
 
 urlpatterns = [
     path('', views.ajouterMembre, name='ajouterMembre'),
+    path('gestion/', views.gestionMembre, name='gestionMembre'),
 ]

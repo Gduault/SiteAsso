@@ -25,3 +25,6 @@ def ajouterMembre(request):
         'form': form,
     }
     return render(request, 'ajouter_membre.html', context)
+
+def gestionMembre(request):
+   return render (request, 'gestion_membre.html')

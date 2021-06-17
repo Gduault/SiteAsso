@@ -4,6 +4,7 @@ from datetime import datetime as date
 import datetime
 
 
+
 # Create your views here.
 def notification(request):
     #Variable avec la date d'inscription de la licence
@@ -31,7 +32,9 @@ def notification(request):
     alerteCertif = Fcertif + datetime.timedelta(days=-14)
 
     #Variable que le tresorier met a une certaine valeur pour envoyer une notification
-    NotifTresorier = 1                                          # à lier a un bouton sur la page gestion de memebre du tresorier
+    NotifTresorier = 1                                           # à lier a un bouton sur la page gestion de membre du tresorier
+
+    NB_NOTIF = 0
 
     context = {
         "Nlicence": NLicence,
@@ -41,6 +44,7 @@ def notification(request):
         "Fcertif": Fcertif,
         "alerteCertif": alerteCertif,
         "NotifTresorier": NotifTresorier,
+        "NB_NOTIF":NB_NOTIF
         }
 
 

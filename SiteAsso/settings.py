@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import pymysql
 
-pymysql.install_as_MySQLdb()
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'annuaire.apps.AnnuaireConfig',
     'gestion_membre.apps.GestionMembreConfig',
+    'notif.apps.NotifConfig',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +86,7 @@ DATABASES = dict(default={
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'asso_plonge',
     'USER': 'root',
-    'PASSWORD': 'root',
+    'PASSWORD': '12',
     'HOST': 'localhost',
     'PORT': '3306',
 })
@@ -111,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr-fr'
 
 TIME_ZONE = 'UTC'
 
@@ -132,3 +133,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'corp:index'
+
