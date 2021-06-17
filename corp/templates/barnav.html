@@ -2,58 +2,159 @@
 <html lang="en">
 
 <head>
- {% load static %}
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <title>{% block title %}GISSACG{% endblock %}</title>
+    {% load static %}
+    {% load auth_extras %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>{% block title %}GISSACG{% endblock %}</title>
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-  <style type="text/css">
-    .asteriskField {
-      display: none;
-    }
+    <style type="text/css">
+        .asteriskField {
+            display: none;
+        }
 
-    form .alert ul li {
-      list-style: none;
-    }
+        form .alert ul li {
+            list-style: none;
+        }
 
-    form .alert ul {
-      padding: 0;
-      margin: 0;
-    }
-  </style>
+        form .alert ul {
+            padding: 0;
+            margin: 0;
+        }
+
+    </style>
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-dark text-uppercase fixed-top navbar-expand-lg bg-dark" id="mainNav">
-        <a class="navbar-brand" href="{% url 'corp:index' %}">GISSACG</a>
+        <a class="navbar-brand" href="">GISSACG</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                {% if user.is_authenticated %}
+                <!-- Barnav pour les secretaire -->
+                {% if request.user|has_group:"Secretaire" %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'corp:index' %}">Accueil</a>
                 </li>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Annuaire</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                            <a class="dropdown-item" href="">Sécurité</a>
+                        </div>
+                    </li>
+                </ul>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Annuaire</a>
+                        Gestion membre</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
-                        <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
-                        <a class="dropdown-item" href="{% url 'general' %}">Générale</a>
+                        <a class="dropdown-item" href="">Gerer membre</a>
+                        <a class="dropdown-item" href="{% url 'gestion:ajouterMembre' %}">Ajouter membre</a>
                     </div>
                 </li>
-            </ul>
                 <li class="nav-item">
                     <a class="nav-link" href="">Evenement</a>
                 </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="/notification">Notification</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Notification</a>
+                </li>
+                {% endif %}
+                <!-- Barnav pour le tresorier -->
+                {% if request.user|has_group:"Tresorier" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'corp:index' %}">Accueil</a>
+                </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Annuaire</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                            <a class="dropdown-item" href="">Sécurité</a>
+                        </div>
+                    </li>
+                </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Evenement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Notification</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Gestion membre</a>
+                </li>
+                {% endif %}
+            <!-- Barnav pour le directeur de plonge -->
+                {% if request.user|has_group:"Directeur_De_Plongee" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'corp:index' %}">Accueil</a>
+                </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Annuaire</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                            <a class="dropdown-item" href="">Sécurité</a>
+                        </div>
+                    </li>
+                </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Evenement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Notification</a>
+                </li>
+                {% endif %}
+            <!-- Barnav pour le president -->
+                {% if request.user|has_group:"President" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'corp:index' %}">Accueil</a>
+                </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Annuaire</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                            <a class="dropdown-item" href="">Sécurité</a>
+                            <a class="dropdown-item" href="">General</a>
+                        </div>
+                    </li>
+                </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Evenement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Notification</a>
+                </li>
+                {% endif %}
+             <!-- Barnav pour les membres -->
+                {% if request.user|has_group:"Membre" %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'corp:index' %}">Accueil</a>
+                </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Annuaire</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                        </div>
+                    </li>
+                </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Evenement</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Notification</a>
                 </li>
                 {% endif %}
             </ul>
@@ -64,16 +165,17 @@
                         {{ user.username }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="">Change password</a>
+                         <a class="dropdown-item" href="{% url 'accounts:gestion' %}">Gestion de profil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{% url 'accounts:logout' %}">Log out</a>
+                        <a class="dropdown-item" href="">Changer de mot de passe</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'accounts:logout' %}">Se deconnecter</a>
                     </div>
                 </li>
             </ul>
             {% else %}
             <form class="form-inline my-2 my-lg-0">
-                <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary">Log in</a>
-                <a href="{% url 'accounts:register' %}" class="btn btn-primary ml-2">Sign up</a>
+                <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary">Se connecter</a>
             </form>
 
             {% endif %}
@@ -83,8 +185,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
 
 </body>
 
