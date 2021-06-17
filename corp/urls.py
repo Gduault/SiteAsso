@@ -6,8 +6,12 @@ app_name = 'corp'
 
 urlpatterns = [
     # Lien du menu
-    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/
     path('', views.index, name='index'),
+    # Lien pour se conneceter au site
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/corp/login/
+
+	#page non fonctionnelle ; a revoir
 
 
 ]
