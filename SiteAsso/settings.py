@@ -12,10 +12,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import pymysql
+
+#import pymysql
+
+#pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
+import accounts.apps
+import evenement.apps
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,11 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corp.apps.CorpConfig',
+    'evenement.apps.EvenementConfig',
     'accounts.apps.AccountsConfig',
     'annuaire.apps.AnnuaireConfig',
-    'gestion_membre.apps.GestionMembreConfig',
-    'notif.apps.NotifConfig',
 ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,7 +88,7 @@ DATABASES = dict(default={
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'asso_plonge',
     'USER': 'root',
-    'PASSWORD': 'root',
+    'PASSWORD': '',
     'HOST': 'localhost',
     'PORT': '3306',
 })
@@ -110,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'fr-fr'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -131,4 +135,3 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'corp:index'
-
