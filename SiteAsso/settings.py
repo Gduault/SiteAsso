@@ -19,7 +19,6 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import accounts.apps
-import evenement.apps
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
