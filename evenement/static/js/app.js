@@ -3,7 +3,6 @@
 	"use strict";
 
 	var options = {
-		events_source: 'events.json.php',
 		view: 'month',
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,
@@ -66,17 +65,17 @@
 		calendar.setOptions({modal: val});
 	});
 	$('#format-12-hours').change(function(){
-		var val = $(this).is(':checked') ? true : false;
+		var val = !!$(this).is(':checked');
 		calendar.setOptions({format12: val});
 		calendar.view();
 	});
 	$('#show_wbn').change(function(){
-		var val = $(this).is(':checked') ? true : false;
+		var val = !!$(this).is(':checked');
 		calendar.setOptions({display_week_numbers: val});
 		calendar.view();
 	});
 	$('#show_wb').change(function(){
-		var val = $(this).is(':checked') ? true : false;
+		var val = !!$(this).is(':checked');
 		calendar.setOptions({weekbox: val});
 		calendar.view();
 	});

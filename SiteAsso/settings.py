@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 
-#import pymysql
+import pymysql
 
-#pymysql.install_as_MySQLdb()
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import accounts.apps
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'evenement.apps.EvenementConfig',
     'accounts.apps.AccountsConfig',
     'annuaire.apps.AnnuaireConfig',
+    'notif.apps.NotifConfig'
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,7 @@ DATABASES = dict(default={
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'asso_plonge',
     'USER': 'root',
-    'PASSWORD': '',
+    'PASSWORD': 'root',
     'HOST': 'localhost',
     'PORT': '3306',
 })
@@ -128,6 +129,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+NB_NOTIF = 0
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
