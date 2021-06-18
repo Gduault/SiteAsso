@@ -36,7 +36,11 @@
           <td>{{ adherent.NOM }}</td>
           <td>{{ adherent.PRENOM }}</td>
           <td>{{ adherent.ROLE_ADHERENT }}</td>
-          <td>{{ adherent.CLE_MOULIN }}</td>
+             {% if adherent.CLE_MOULIN == True %}
+                 <td>Oui</td>
+             {% else %}
+                 <td>Non</td>
+             {% endif %}
           <td>{{ adherent.EMAIL }}</td>
       </tr>{% endfor %}
     </tbody>
