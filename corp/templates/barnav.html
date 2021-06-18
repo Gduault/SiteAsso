@@ -91,8 +91,8 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Gestion de membre</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="">Licence</a>
-                            <a class="dropdown-item" href="">Assurance</a>
+                            <a class="dropdown-item" href="{% url 'gestion:licenceMembre' %}">Licence</a>
+                            <a class="dropdown-item" href="{% url 'gestion:assuranceMembre' %}">Assurance</a>
                         </div>
                     </li>
                 {% endif %}

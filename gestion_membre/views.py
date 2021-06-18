@@ -46,5 +46,8 @@ def ajouterMembre(request):
         messages.error(request, f'Le compte de l''utilisateur n''a pas été crée')
     return render(request, 'ajouter_membre.html', context)
 
-def gestionMembre(request):
-   return render (request, 'gestion_membre.html')
+def assuranceMembre(request):
+    return render(request, 'Assurance_membre.html')
+
+def licenceMembre(request):
+    return render(request, 'Licence_membre.html')

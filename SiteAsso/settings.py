@@ -44,9 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corp.apps.CorpConfig',
-    'evenement.apps.EvenementConfig',
+    #'evenement.apps.EvenementConfig',
     'accounts.apps.AccountsConfig',
     'annuaire.apps.AnnuaireConfig',
+    'gestion_membre.apps.GestionMembreConfig',
+    'notif.apps.NotifConfig',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +90,7 @@ DATABASES = dict(default={
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'asso_plonge',
     'USER': 'root',
-    'PASSWORD': '',
+    'PASSWORD': '12',
     'HOST': 'localhost',
     'PORT': '3306',
 })

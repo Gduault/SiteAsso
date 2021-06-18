@@ -6,5 +6,6 @@ app_name = 'gestion'
 
 urlpatterns = [
     path('', views.ajouterMembre, name='ajouterMembre'),
-    path('gestion/', views.gestionMembre, name='gestionMembre'),
+    path('assurance/', views.assuranceMembre, name='assuranceMembre'),
+    path('licence/', views.licenceMembre, name='licenceMembre'),
 ]
