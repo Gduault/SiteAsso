@@ -12,9 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-
-
-
+import pymysql
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -86,7 +84,7 @@ DATABASES = dict(default={
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'asso_plonge',
     'USER': 'root',
-    'PASSWORD': '12',
+    'PASSWORD': 'root',
     'HOST': 'localhost',
     'PORT': '3306',
 })
