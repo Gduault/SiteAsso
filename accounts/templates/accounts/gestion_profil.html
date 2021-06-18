@@ -11,13 +11,15 @@
             <p>Renseignez vos informations personnelles pour le bon fonctionnement de l'application.</p>
             <br>
             <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ u_ }}
                 {% for Adh_id in adh %}
                      {% if user.id == Adh_id.id %}
                          <div class="row">
                             <div class="col">
                               <label for="nom">Nom</label>
                                  <input type="text" class="form-control" id="nom" name="nom"
-                                value="{{ Adh_id.NOM}}" placeholder="Ex: Allan">
+                                 value="{{ Adh_id.NOM}}" placeholder="Ex: Allan">
                              </div>
                              <div class="col">
                                <label for="prenom">Prenom</label>
@@ -127,6 +129,10 @@
                                 value="{{ Adh_id.NUM_TEL_MDC}}" placeholder="0601020304">
                              </div>
                          </div>
+                         <br><br>
+                         <div class="d-flex justify-content-center" >
+                             <button type="submit" class="btn btn-primary">Mettre a jour</button>
+                         </div>
                  {% endif %}
 
             {% endfor %}
@@ -134,4 +140,8 @@
         </div>
     </div>
     <div class="col md-4"></div>
+    <br>
+    <br>
+    {% include 'footer.html' %}
+
 {% endblock body %}

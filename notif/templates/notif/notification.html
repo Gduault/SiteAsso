@@ -1,4 +1,34 @@
+{% include 'barnav.html' %}
 
-        Nlicence : {{ Nlicence }}
-        today : {{ today }}
-        alerte : {{ alerte }}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<br><br><br><br><br>
+    <h2>Bienvenue sur la page des notification</h2>
+    <h5>Vous avez {{ NB_NOTIF }} notifications </h5>
+<br>
+         <!-- Envoye un notification du tresorier pour rappeller de payer la licence -->
+        {% if NotifTresorier == 1 %}
+            <div class="alert alert-danger" role="alert">
+            Vous devez payer votre licence.
+            </div>
+        {% endif %}
+
+        <!-- Si la date du jour est superieur a la date d'alerteLicence, affiche un notification -->
+        {% if today > alerteLicence %}
+            <div class="alert alert-primary" role="alert">
+            Il vous reste moins d'un mois pour renouveler votre licence.
+            </div>
+        {% endif %}
+
+        <!-- Si la date de fin arriver est superieur a l'alerteCertif-->
+         {% if today > alerteCertif %}
+            <div class="alert alert-primary" role="alert">
+            Votre certification médical expire le {{ Fcertif }}, il vous reste moins de 2 semaine pour la renouveler.
+            </div>
+        {% endif %}
+
+{% include 'footer.html' %}
+{% endblock %}

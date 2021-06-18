@@ -47,7 +47,7 @@
                             Annuaire</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
-                            <a class="dropdown-item" href="">Sécurité</a>
+                            <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                         </div>
                     </li>
                 </ul>
@@ -63,7 +63,7 @@
                     <a class="nav-link" href="{% url 'evenement:agenda' %}">Evenement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Notification</a>
+                    <a class="nav-link" href="{% url 'notif:notification' %}">Notification</a>
                 </li>
                 {% endif %}
                 <!-- Barnav pour le tresorier -->
@@ -77,7 +77,7 @@
                             Annuaire</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
-                            <a class="dropdown-item" href="">Sécurité</a>
+                            <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                         </div>
                     </li>
                 </ul>
@@ -85,11 +85,16 @@
                     <a class="nav-link" href="{% url 'evenement:agenda' %}">Evenement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Notification</a>
+                    <a class="nav-link" href="{% url 'notif:notification' %}">Notification</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Gestion membre</a>
-                </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gestion de membre</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="">Licence</a>
+                            <a class="dropdown-item" href="">Assurance</a>
+                        </div>
+                    </li>
                 {% endif %}
             <!-- Barnav pour le directeur de plonge -->
                 {% if request.user|has_group:"Directeur_De_Plongee" %}
@@ -102,7 +107,7 @@
                             Annuaire</a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
-                            <a class="dropdown-item" href="">Sécurité</a>
+                            <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                         </div>
                     </li>
                 </ul>
@@ -110,7 +115,7 @@
                     <a class="nav-link" href="{% url 'evenement:agenda' %}">Evenement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Notification</a>
+                    <a class="nav-link" href="{% url 'notif:notification' %}">Notification</a>
                 </li>
                 {% endif %}
             <!-- Barnav pour le president -->
@@ -133,7 +138,7 @@
                     <a class="nav-link" href="{% url 'evenement:agenda' %}">Evenement</a>
                 </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="">Notification</a>
+                    <a class="nav-link" href="{% url 'notif:notification' %}">Notification</a>
                 </li>
                 {% endif %}
              <!-- Barnav pour les membres -->
@@ -154,7 +159,7 @@
                     <a class="nav-link" href="">Evenement</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Notification</a>
+                    <a class="nav-link" href="{% url 'notif:notification' %}">Notification</a>
                 </li>
                 {% endif %}
             </ul>

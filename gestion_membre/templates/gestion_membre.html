@@ -14,38 +14,72 @@
 <br>
 <body>
  <br><br><br><br>
+
+
+<!--Tableau avec les informations des Assurances par personnes-->
 <div class="container">
-  <h2>Annuaire classique</h2>
-  <table class="table" id="table_classique">
+  <h2>Informations assurances</h2>
+  <table class="table">
     <thead class="thead-dark">
       <tr>
-          <th>Photo</th>
           <th>civilité</th>
           <th>Nom</th>
           <th>Prénom</th>
-          <th>Rôle</th>
-          <th>Clé du moulin</th>
-          <th>Email</th>
+          <th>Nom Assurance</th>
+          <th>Mode paiement</th>
+          <th>Montant</th>
+          <th>Nombre de chéques</th>
       </tr>
     </thead>
     <tbody>
     <tbody>
       <tr>{% for adherent in adherents %}
-          <td>{{ adherent.PHOTO }}</td>
           <td>{{ adherent.CIVILITE }}</td>
           <td>{{ adherent.NOM }}</td>
           <td>{{ adherent.PRENOM }}</td>
-          <td>{{ adherent.ROLE_ADHERENT }}</td>
-             {% if adherent.CLE_MOULIN == True %}
-                 <td>Oui</td>
-             {% else %}
-                 <td>Non</td>
-             {% endif %}
-          <td>{{ adherent.EMAIL }}</td>
+          <td>{{ adherent.NUM_LICENCE  }}</td>
+          <td>{{ adherent.MODE_PAIEMENT  }}</td>
+          <td>{{ adherent.MONTANT }}</td>
+          <td>{{ adherent.NB_CHEQUE  }}</td>
+
       </tr>{% endfor %}
     </tbody>
   </table>
 </div>
+
+
+
+<!--Tableau avec les informations des licences par personnes-->
+ <div class="container">
+  <h2>Informations Licences</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th>civilité</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Nom Licence</th>
+          <th>Mode paiement</th>
+          <th>Montant</th>
+          <th>Nombre de chéques</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tbody>
+      <tr>{% for adherent in adherents %}
+          <td>{{ adherent.CIVILITE }}</td>
+          <td>{{ adherent.NOM }}</td>
+          <td>{{ adherent.PRENOM }}</td>
+          <td>{{ assurance_complementaire.NOM_ASSURANCE }}</td>
+          <td>{{ assurance_complementaire.MODE_PAIEMENT }}</td>
+          <td>{{ assurance_complementaire.MONTANT }}</td>
+          <td>{{ assurance_complementaire.NB_CHEQUE }}</td>
+
+      </tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

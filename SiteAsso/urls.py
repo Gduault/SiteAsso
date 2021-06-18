@@ -36,5 +36,7 @@ urlpatterns = [
     # Lien vers l'application accounts
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/register
     path('gestion_membre/', include('gestion_membre.urls')),
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/Notification
+    path('Notification/', include('notif.urls')),
 
 ]

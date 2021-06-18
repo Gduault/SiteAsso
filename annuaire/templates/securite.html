@@ -36,7 +36,11 @@
         <td>{{ adherent.NOM }}</td>
         <td>{{ adherent.PRENOM }}</td>
           <td>{{ adherent.REMARQUE }}</td>
-          <td>{{ adherent.ALLERGIE }}</td>
+          {% if adherent.ALLERGIE == True %}
+                 <td>Oui</td>
+             {% else %}
+                 <td>Non</td>
+             {% endif %}
           <td>{{ adherent.PER_CONTACT }}</td>
           <td>{{ adherent.NUM_PER_CONTACT }}</td>
           <td>{{ adherent.MDC_REF }}</td>
