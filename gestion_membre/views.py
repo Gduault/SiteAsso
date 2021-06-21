@@ -13,7 +13,6 @@ from django.shortcuts import render, redirect
 
 from django.shortcuts import render
 from django.forms import ModelForm
-from requests import request
 
 from corp.models import Adherent
 from django.contrib.auth.forms import UserCreationForm

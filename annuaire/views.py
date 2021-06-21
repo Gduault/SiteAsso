@@ -5,11 +5,14 @@ from corp.models import *
 # Create your views here.
 
 # permet d'accéder à la page de la manière suivante http://172.0.0.1/annuaire/classique.html
+from gestion_membre.decorators import allowed_users
+
+
 def classique(request):
     adherent = Adherent.objects.all()
     return render(request, 'classique.html', {'adherents':adherent})
 
-
+@allowed_users(allowed_roles='President')
 # permet d'accéder à la page de la manière suivante http://172.0.0.1/annuaire/general.html
 def general(request):
     adherent = Adherent.objects.all()
