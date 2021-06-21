@@ -28,6 +28,7 @@
           <th>Mode paiement</th>
           <th>Montant</th>
           <th>Nombre de chéques</th>
+          <th>Envoyer une notification</th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +41,7 @@
           <td>{{ adherent.MODE_PAIEMENT  }}</td>
           <td>{{ adherent.MONTANT }}</td>
           <td>{{ adherent.NB_CHEQUE  }}</td>
+          <td><button type="button" class="btn btn-danger">Envoyer une notification</button></td>
 
       </tr>{% endfor %}
     </tbody>
