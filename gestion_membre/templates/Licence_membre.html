@@ -3,7 +3,7 @@
 <html lang="en">
 {% include 'barnav.html' %}
 <head>
-    <title>annuaire classique</title>
+    <title>Informations Licences</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -14,40 +14,6 @@
 <br>
 <body>
  <br><br><br><br>
-
-
-<!--Tableau avec les informations des Assurances par personnes-->
-<div class="container">
-  <h2>Informations assurances</h2>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-          <th>civilité</th>
-          <th>Nom</th>
-          <th>Prénom</th>
-          <th>Nom Assurance</th>
-          <th>Mode paiement</th>
-          <th>Montant</th>
-          <th>Nombre de chéques</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tbody>
-      <tr>{% for adherent in adherents %}
-          <td>{{ adherent.CIVILITE }}</td>
-          <td>{{ adherent.NOM }}</td>
-          <td>{{ adherent.PRENOM }}</td>
-          <td>{{ adherent.NUM_LICENCE  }}</td>
-          <td>{{ adherent.MODE_PAIEMENT  }}</td>
-          <td>{{ adherent.MONTANT }}</td>
-          <td>{{ adherent.NB_CHEQUE  }}</td>
-
-      </tr>{% endfor %}
-    </tbody>
-  </table>
-</div>
-
-
 
 <!--Tableau avec les informations des licences par personnes-->
  <div class="container">
@@ -62,6 +28,7 @@
           <th>Mode paiement</th>
           <th>Montant</th>
           <th>Nombre de chéques</th>
+          <th>Envoyer une notification</th>
       </tr>
     </thead>
     <tbody>
@@ -74,6 +41,8 @@
           <td>{{ assurance_complementaire.MODE_PAIEMENT }}</td>
           <td>{{ assurance_complementaire.MONTANT }}</td>
           <td>{{ assurance_complementaire.NB_CHEQUE }}</td>
+
+          <td><button type="button" class="btn btn-danger">Envoyer une notification</button></td>
 
       </tr>{% endfor %}
     </tbody>

@@ -45,73 +45,12 @@ class CalendarView(LoginRequiredMixin, generic.ListView):
     model = Event
     template_name = 'calendar.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        d = get_date(self.request.GET.get('month', None))
-        cal = Calendar(d.year, d.month)
-        html_cal = cal.formatmonth(withyear=True)
-        context['calendar'] = mark_safe(html_cal)
-        context['prev_month'] = prev_month(d)
-        context['next_month'] = next_month(d)
-        return context
+from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 
-@login_required
-def create_event(request):    
-    form = EventForm(request.POST or None)
-    if request.POST and form.is_valid():
-        title = form.cleaned_data['title']
-        description = form.cleaned_data['description']
-        start_time = form.cleaned_data['start_time']
-        end_time = form.cleaned_data['end_time']
-        Event.objects.get_or_create(
-            user=request.user,
-            title=title,
-            description=description,
-            start_time=start_time,
-            end_time=end_time
-        )
-        return HttpResponseRedirect(reverse('evenement:calendar'))
-    return render(request, 'event.html', {'form': form})
-
-@login_required
-class EventEdit(generic.UpdateView):
-    model = Event
-    fields = ['title', 'description', 'start_time', 'end_time']
-    template_name = 'event.html'
-
-@login_required
-def event_details(request, event_id):
-    event = Event.objects.get(id=event_id)
-    eventmember = EventMember.objects.filter(event=event)
-    context = {
-        'event': event,
-        'eventmember': eventmember
-    }
-    return render(request, 'event-details.html', context)
+# Create your views here.
 
 
-def add_eventmember(request, event_id):
-    forms = AddMemberForm()
-    if request.method == 'POST':
-        forms = AddMemberForm(request.POST)
-        if forms.is_valid():
-            member = EventMember.objects.filter(event=event_id)
-            event = Event.objects.get(id=event_id)
-            if member.count() <= 9:
-                user = forms.cleaned_data['user']
-                EventMember.objects.create(
-                    event=event,
-                    user=user
-                )
-                return redirect('evenement:calendar')
-            else:
-                print('--------------User limit exceed!-----------------')
-    context = {
-        'form': forms
-    }
-    return render(request, 'add_member.html', context)
+def agenda(request):
+    return render(request, 'evenement/index.html')
 
-class EventMemberDeleteView(generic.DeleteView):
-    model = EventMember
-    template_name = 'event_delete.html'
-    success_url = reverse_lazy('evenement:calendar')
