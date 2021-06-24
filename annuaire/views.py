@@ -22,3 +22,15 @@ def general(request):
 def securite(request):
     adherent = Adherent.objects.all()
     return render(request, 'securite.html', {'adherents':adherent})
+
+def detail(request, id_adh):
+    adh = Adherent.objects.get(id=id_adh)
+    adhe = Adherent.objects.all()
+    ac = Assurance_Complementaire.objects.filter(adherent=adh)
+    cm = Certif_Medical.objects.filter(adherent=adh)
+    context = {
+        'ac': ac,
+        'adhe': adhe,
+        'cm': cm,
+    }
+    return render(request, 'detail.html', context)
