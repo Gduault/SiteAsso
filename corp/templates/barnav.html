@@ -7,30 +7,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>{% block title %}GISSACG{% endblock %}</title>
-
-</head>
-
-<head>
-    <title>GISSACG</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
         <a class="navbar-brand" href="{% url 'corp:index' %}">GISSACG</a>
+        <!-- Ajout d'un bouton en mode telephone -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Il contient toute les balises peut importe le roles -->
         <div class="container-fluid">
+            <!-- Debut de la classe qui contiendra tous les items a gauche de la barnav -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Barnav pour tous les groupes peut importe le role qu'il aura -->
                 {% if user.is_authenticated %}
@@ -38,10 +27,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'corp:index' %}">Accueil</a>
                     </li>
+                    <!-- Ajout d'un item dans le menu nommé evenement -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'evenement:calendar' %}">Evenement</a>
                     </li>
+                    <!-- Ajout d'un item dans le menu nommé Notification -->
                     <li class="nav-item">
+                    <!-- Ajout d'une pastille avec le noimbre de notification -->
                         <a class="nav-link" href="{% url 'notif:notification' %}">Notification <span class="badge bg-primary">{{ NB_NOTIF }}</span></a>
                     </li>
                     {% endif %}
@@ -54,7 +46,9 @@
                             Annuaire</a>
                         <!-- Items qui sera afficher sous l'annuaire -->
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <!-- Ajout de l'item classique membre dans le menu deroulant -->
                             <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                            <!-- Ajout de l'item Securite membre dans le menu deroulant -->
                             <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                         </div>
                     </li>
@@ -64,7 +58,9 @@
                             Gestion membre</a>
                         <!-- Items qui sera afficher sous la gestion membre pour la secretaire -->
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <!-- Ajout de l'item Gerer membre dans le menu deroulant -->
                             <a class="dropdown-item" href="">Gerer membre</a>
+                            <!-- Ajout de l'item Ajouter membre dans le menu deroulant -->
                             <a class="dropdown-item" href="{% url 'gestion:ajouterMembre' %}">Ajouter membre</a>
                         </div>
                     </li>
@@ -72,92 +68,124 @@
                 {% endif %}
                 <!-- Barnav pour le tresorier -->
                 {% if request.user|has_group:"Tresorier" %}
-
+                <!-- Debut du menu deroulant de type dropdown pour le tresorier-->
                 <li class="nav-item dropdown">
+                <!-- Titre du menu deroulant ici Annuaire -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Annuaire</a>
+                    <!-- Items pour le menu deroulant droptown -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- Ajout de l'item Classique dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                        <!-- Ajout de l'item Securite dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                     </div>
                 </li>
+                    <!-- Debut du menu deroulant de type dropdown pour le tresorier-->
                 <li class="nav-item dropdown">
+                <!-- Titre du menu deroulant ici Gestion membre -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Gestion de membre</a>
+                    <!-- Items pour le menu deroulant droptown -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- Ajout de l'item Licence dans le menu deroulant -->
                         <a class="dropdown-item" href="">Licence</a>
+                        <!-- Ajout de l'item Assurance dans le menu deroulant -->
                         <a class="dropdown-item" href="">Assurance</a>
                     </div>
                 </li>
-
+                    <!-- Fin du changement de menu pour le tresorier -->
                 {% endif %}
+
                 <!-- Barnav pour le directeur de plonge -->
                 {% if request.user|has_group:"Directeur_De_Plongee" %}
-
+                <!-- Debut du menu deroulant de type dropdown pour le directeur de plonge-->
                 <li class="nav-item dropdown">
+                <!-- Titre du menu deroulant ici Annuaire -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Annuaire</a>
+                    <!-- Items pour le menu deroulant droptown -->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- Ajout de l'item Classique dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                        <!-- Ajout de l'item Securite dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                     </div>
                 </li>
-
+                    <!-- Fin du changement de menu pour le directeur de plonge -->
                 {% endif %}
-                <!-- Barnav pour le president -->
-                {% if request.user|has_group:"President" %}
 
+                <!-- Barnav pour le president -->
+                <!-- Si l'utilisateur fait parti du groupe President alors il aura acces a differente parti du menu -->
+                {% if request.user|has_group:"President" %}
+                <!-- Debut du menu deroulant de type dropdown pour le president-->
                 <li class="nav-item dropdown">
+                    <!-- Titre du menu deroulant ici Annuaire -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Annuaire</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- Ajout de l'item Classique dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
+                        <!-- Ajout de l'item Securite dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
+                        <!-- Ajout de l'item classique dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'general' %}">Générale</a>
                     </div>
                 </li>
-
+                    <!-- Fin du changement de menu pour le president-->
                 {% endif %}
-                <!-- Barnav pour les membres -->
-                {% if request.user|has_group:"Membre" %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'corp:index' %}">Accueil</a>
-                </li>
 
+                <!-- Barnav pour les membres -->
+                <!-- Si l'utilisateur fait parti du groupe Membre alors il aura acces a differente parti du menu -->
+                <!-- Le membre aura acces qu'a l'annuaire classique -->
+                {% if request.user|has_group:"Membre" %}
+                    <!-- Debut du menu deroulant de type dropdown pour le membre-->
                 <li class="nav-item dropdown">
+                <!-- Titre du menu deroulant ici Annuaire -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Annuaire</a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- Ajout de l'item classique dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
                     </div>
                 </li>
 
             </div>
             {% endif %}
+
+            <!-- Si l'utilisateur se connecte peut importe le role de l'utilisateur il aura acces aux items -->
             {% if user.is_authenticated %}
+                <!-- Debut de la classe qui contiendra tous les items a droite de la barnav -->
             <ul class="nav navbar-nav ml-2">
+                 <!-- Debut du menu deroulant de type dropdown pour les utilisateurs connecté-->
                 <li class="nav-item dropdown">
+                    <!-- Titre du menu deroulant ici sera le nom de l'utilisateur -->
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- Affichage du nom de l'utilisateur et qui a pour titre du menu deroulant -->
                         {{ user.username }}
                     </a>
+                    <!-- Debut du menu deroulant de type dropdown pour le membre-->
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <!-- Ajout de l'item gestion de profil dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'accounts:gestion' %}">Gestion de profil</a>
+                        <!-- Permet d'ajouter un trait entre les champs-->
                         <div class="dropdown-divider"></div>
+                        <!-- Ajout de l'item Changer de mot de passe dans le menu deroulant -->
                         <a class="dropdown-item" href="">Changer de mot de passe</a>
+                        <!-- Permet d'ajouter un trait entre les champs-->
                         <div class="dropdown-divider"></div>
+                        <!-- Ajout de l'item Se deconnecter dans le menu deroulant -->
                         <a class="dropdown-item" href="{% url 'accounts:logout' %}">Se deconnecter</a>
                     </div>
                 </li>
             </ul>
+                <!-- Fin du si l'utisateur est connecter -->
             {% endif %}
+
+        <!-- Fin du div qui englobe tous -->
         </div>
+    <!-- Fin de la barnav -->
     </nav>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-
 
 </body>
 
