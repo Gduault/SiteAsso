@@ -19,6 +19,17 @@
             </div>
         {% endif %}
 
+        <!-- Envoye un notification du tresorier pour rappeller de payer l'assurance -->
+        <!-- Envoye un notification du tresorier pour rappeller de payer l'assurance -->
+        {% if compt3 == 4 %}
+             <div class="alert alert-danger" role="alert">
+                 <!--Bouton pour ne plus afficher les notifs, le tresorier doit la renvoyer si il souhaite la réafficher envoye egalement un message vue aux tresorier si il clique dessus-->
+                 <!-- pas fait -->
+                <button type="button" class="btn btn-danger mr-3">Vue </button>
+                    Vous devez payer votre licence.
+            </div>
+        {% endif %}
+
         <!-- Si la date du jour est superieur a la date d'alerteLicence, affiche un notification -->
         {% if compt1 == 2 %}
              <div class="alert alert-primary" role="alert">
@@ -31,6 +42,7 @@
                Votre certificat medical expire {{ Fcertif }}, il vous reste moins de 2 semaines pour la renouveler
             </div>
         {% endif %}
+
     <br>
 {% include 'footer.html' %}
 {% endblock %}
