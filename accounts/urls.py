@@ -5,7 +5,6 @@ from django.contrib.auth import views as auth_views
 from . import views
 from .forms import LoginForm
 
-
 app_name = 'accounts'
 
 urlpatterns = [
@@ -14,5 +13,4 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='accounts/logout.html', next_page='accounts:login'),
          name='logout'),
     path('gestiondeprofil', views.gestiondeprofil, name='gestion'),
-    path('updateProfil', views.updateProfil, name='update')
 ]

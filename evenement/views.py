@@ -6,5 +6,5 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 def agenda(request):
-    return render(request, 'page_agenda.html')
+    return render(request, 'agenda.html')
 
