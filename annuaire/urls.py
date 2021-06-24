@@ -9,4 +9,6 @@ urlpatterns = [
     path('securite/', views.securite, name='securite'),
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/annaire/classique
     path('classique/', views.classique, name='classique'),
+    # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/annaire/general/id/detail
+    path('general/<int:id_adh>/detail/', views.detail, name="detail"),
 ]
