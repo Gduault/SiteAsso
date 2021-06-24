@@ -11,29 +11,32 @@
  <br><br><br><br>
 <div class="table-responsive">
   <h2>Annuaire général</h2>
+    <!-- création d'un tableau de donnée comportant les informations de base pour toutes la communautée du site -->
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th>Photo</th>
-        <th>Civilité</th>
-        <th>Nom</th>
-          <th>Prénom</th>
-          <th>Rôle</th>
-          <th>Email</th>
-          <th>action</th>
+        <th>Photo</th><!-- création d'une colonne 'Photo' -->
+        <th>Civilité</th><!-- création d'une colonne 'Civilité' -->
+        <th>Nom</th><!-- création d'une colonne 'Nom' -->
+          <th>Prénom</th><!-- création d'une colonne 'Prénom' -->
+          <th>Rôle</th><!-- création d'une colonne 'Rôle' -->
+          <th>Email</th><!-- création d'une colonne 'Email' -->
+          <th>Action</th><!-- création d'une colonne 'Action' -->
       </tr>
     </thead>
     <tbody>
     <tbody>
+    <!-- boucle affectant les élements de la base récupérer dans le views dans une variable pour l'affichage d'élément -->
       <tr>{% for adherent in adherents %}
-          <td>{{ adherent.PHOTO }}</td>
-          <td>{{ adherent.CIVILITE }}</td>
-          <td>{{ adherent.NOM }}</td>
-          <td>{{ adherent.PRENOM }}</td>
-          <td>{{ adherent.ROLE_ADHERENT }}</td>
-          <td>{{ adherent.EMAIL }}</td>
+          <td>{{ adherent.PHOTO }}</td><!-- affiche toutes les photos dans le tableau -->
+          <td>{{ adherent.CIVILITE }}</td><!-- affiche toutes les civilités dans le tableau -->
+          <td>{{ adherent.NOM }}</td><!-- affiche touts les noms dans le tableau -->
+          <td>{{ adherent.PRENOM }}</td><!-- affiche touts les prénoms dans le tableau -->
+          <td>{{ adherent.ROLE_ADHERENT }}</td><!-- affiche touts les rôle de chaque adhérents dans le tableau -->
+          <td>{{ adherent.EMAIL }}</td><!-- affiche touts les emails dans le tableau -->
+          <!-- bouton qui permet d'accéder à la page de détail d'un membre choisis selon son ID -->
           <td><a class="btn btn-success right" href="{% url 'detail' adherent.id %}"> Detail </a></td>
-      </tr>{% endfor %}
+      </tr>{% endfor %}<!-- fin de la boucle -->
     </tbody>
   </table>
 </div>
