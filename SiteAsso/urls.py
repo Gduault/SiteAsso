@@ -26,7 +26,7 @@ urlpatterns = [
     path('', include('corp.urls')),
     # Lien vers l'application evenement
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/evenement/
-    path('evenement/', include('evenement.urls')),
+    #path('evenement/', include('evenement.urls')),
     # Lien vers l'application annuaire
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/annuaire/
     path('annuaire/', include('annuaire.urls')),
@@ -38,5 +38,6 @@ urlpatterns = [
     path('gestion_membre/', include('gestion_membre.urls')),
     # Pour y acceder changer l'url comme ceci http://127.0.0.1:8000/Notification
     path('Notification/', include('notif.urls')),
+    path('Evenemennt', include('evenement.urls')),
 
 ]

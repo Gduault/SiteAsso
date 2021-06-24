@@ -47,8 +47,12 @@ def ajouterMembre(request):
 
 def assuranceMembre(request):
     adherent = Adherent.objects.all()
-    return render(request, 'Assurance_membre.html')
+
+    return render(request, 'Assurance_membre.html', {'adherents': adherent}, )
+
 
 def licenceMembre(request):
     adherent = Adherent.objects.all()
-    return render(request, 'Licence_membre.html', {'adherents':adherent})
+
+    return render(request, 'Licence_membre.html', {'adherents': adherent}, )
+

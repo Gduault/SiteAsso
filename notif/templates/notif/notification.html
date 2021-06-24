@@ -1,36 +1,58 @@
 {% include 'barnav.html' %}
+
 <header>
     {% include 'header.html' %}
     {% load static %}
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </header>
+
+<!-- Fichier pour regroupent les notification envoyer-->
+
 {% block body %}
-<br>
+<br><br><br><br><br>
     <h2>Bienvenue sur la page des notification</h2>
     <h5>Vous avez {{ NB_NOTIF }} notifications </h5>
 <br>
          <!-- Envoye un notification du tresorier pour rappeller de payer la licence -->
-
-        <!-- Si la date du jour est superieur a la date d'alerteLicence, affiche un notification -->
-
         {% if compt == 1 %}
              <div class="alert alert-danger" role="alert">
+                <!--Bouton pour ne plus afficher les notifs, le tresorier doit la renvoyer si il souhaite la réafficher envoye egalement un message vue aux tresorier si il clique dessus-->
+                <!-- pas fait -->
+                 <button type="button" class="btn btn-danger mr-3">Vue</button>
                 Vous devez payer votre licence.
+            </div>
+        {% endif %}
+
+     <!-- Envoye un notification du tresorier pour rappeller de payer l'assurance -->
+        {% if compt3 == 4 %}
+             <div class="alert alert-danger" role="alert">
+                 <!--Bouton pour ne plus afficher les notifs, le tresorier doit la renvoyer si il souhaite la réafficher envoye egalement un message vue aux tresorier si il clique dessus-->
+                 <!-- pas fait -->
+                <button type="button" class="btn btn-danger mr-3">Vue </button>
+
+                Vous devez payer votre assurance.
             </div>
         {% endif %}
 
         <!-- Si la date du jour est superieur a la date d'alerteLicence, affiche un notification -->
         {% if compt1 == 2 %}
              <div class="alert alert-primary" role="alert">
+            <!-- la notif disparait si la licence est renouveler-->
                Il vous reste moins d'un mois pour renouveler votre licence.
             </div>
         {% endif %}
 
+        <!-- Si la date de fin arriver est superieur a l'alerteCertif-->
         {% if compt2 == 3 %}
              <div class="alert alert-primary" role="alert">
+                <!-- la notif disparais si la certification medical est renouveler ou si la date du jour est supérieur à celle de la fin du certificat-->
                Votre certificat medical expire {{ Fcertif }}, il vous reste moins de 2 semaines pour la renouveler
+
             </div>
         {% endif %}
-    <br>
+
+
+
+
 {% include 'footer.html' %}
 {% endblock %}

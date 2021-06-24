@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include 'barnav.html' %}
+
+<!-- Fichier avec les informations des assurances des membres -->
+
 <header>
     {% include 'header.html' %}
     {% load static %}
@@ -37,7 +40,7 @@
           <td>{{ adherent.MODE_PAIEMENT  }}</td>
           <td>{{ adherent.MONTANT }}</td>
           <td>{{ adherent.NB_CHEQUE  }}</td>
-          <td><button type="button" class="btn btn-danger">Envoyer une notification</button></td>
+          <td><button type="button" class="btn btn-danger" onclick = NotifassuranceTresorier = 1 >Envoyer une notification</button></td>
 
       </tr>{% endfor %}
     </tbody>
