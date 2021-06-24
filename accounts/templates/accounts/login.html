@@ -1,5 +1,9 @@
 {% include 'barnav.html' %}
-
+<header>
+    {% include 'header.html' %}
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</header>
 {% block body %}
     <br><br><br><br><br>
     <div class="container">
