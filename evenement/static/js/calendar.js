@@ -14,7 +14,7 @@ Date.prototype.getWeek = function(iso8601) {
 		target.setDate(target.getDate() - dayNr + 3);
 		var firstThursday = target.valueOf();
 		target.setMonth(0, 1);
-		if (target.getDay() !== 4) {
+		if (target.getDay() != 4) {
 			target.setMonth(0, 1 + ((4 - target.getDay()) + 7) % 7);
 		}
 		return 1 + Math.ceil((firstThursday - target) / 604800000); // 604800000 = 7 * 24 * 3600 * 1000
@@ -251,7 +251,7 @@ if(!String.prototype.formatNum) {
 
 	var browser_timezone = '';
 	try {
-		if($.type(window.jstz) === 'object' && $.type(jstz.determine) === 'function') {
+		if($.type(window.jstz) == 'object' && $.type(jstz.determine) == 'function') {
 			browser_timezone = jstz.determine().name();
 			if($.type(browser_timezone) !== 'string') {
 				browser_timezone = '';
@@ -275,7 +275,7 @@ if(!String.prototype.formatNum) {
 	function getExtentedOption(cal, option_name) {
 		var fromOptions = (cal.options[option_name] != null) ? cal.options[option_name] : null;
 		var fromLanguage = (cal.locale[option_name] != null) ? cal.locale[option_name] : null;
-		if((option_name === 'holidays') && cal.options.merge_holidays) {
+		if((option_name == 'holidays') && cal.options.merge_holidays) {
 			var holidays = {};
 			$.extend(true, holidays, fromLanguage ? fromLanguage : defaults_extended.holidays);
 			if(fromOptions) {
@@ -310,18 +310,18 @@ if(!String.prototype.formatNum) {
 			var firstDay = null, lastDay = null, failed = false;
 			$.each(key.split('>'), function(i, chunk) {
 				var m, date = null;
-				if(m === /^(\d\d)-(\d\d)$/.exec(chunk)) {
+				if(m = /^(\d\d)-(\d\d)$/.exec(chunk)) {
 					date = new Date(year, parseInt(m[2], 10) - 1, parseInt(m[1], 10));
 				}
-				else if(m === /^(\d\d)-(\d\d)-(\d\d\d\d)$/.exec(chunk)) {
-					if(parseInt(m[3], 10) === year) {
+				else if(m = /^(\d\d)-(\d\d)-(\d\d\d\d)$/.exec(chunk)) {
+					if(parseInt(m[3], 10) == year) {
 						date = new Date(year, parseInt(m[2], 10) - 1, parseInt(m[1], 10));
 					}
 				}
-				else if(m === /^easter(([+\-])(\d+))?$/.exec(chunk)) {
+				else if(m = /^easter(([+\-])(\d+))?$/.exec(chunk)) {
 					date = getEasterDate(year, m[1] ? parseInt(m[1], 10) : 0);
 				}
-				else if(m === /^(\d\d)([+\-])([1-5])\*([0-6])$/.exec(chunk)) {
+				else if(m = /^(\d\d)([+\-])([1-5])\*([0-6])$/.exec(chunk)) {
 					var month = parseInt(m[1], 10) - 1;
 					var direction = m[2];
 					var offset = parseInt(m[3]);
@@ -329,14 +329,14 @@ if(!String.prototype.formatNum) {
 					switch(direction) {
 						case '+':
 							var d = new Date(year, month, 1 - 7);
-							while(d.getDay() !== weekday) {
+							while(d.getDay() != weekday) {
 								d = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1);
 							}
 							date = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 7 * offset);
 							break;
 						case '-':
-							var d = new Date(year, month + 1, 7);
-							while(d.getDay() !== weekday) {
+							var d = new Date(year, month + 1, 0 + 7);
+							while(d.getDay() != weekday) {
 								d = new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1);
 							}
 							date = new Date(d.getFullYear(), d.getMonth(), d.getDate() - 7 * offset);
@@ -386,7 +386,7 @@ if(!String.prototype.formatNum) {
 	getHolidays.cache = {};
 
 	function warn(message) {
-		if($.type(window.console) === 'object' && $.type(window.console.warn) === 'function') {
+		if($.type(window.console) == 'object' && $.type(window.console.warn) == 'function') {
 			window.console.warn('[Bootstrap-Calendar] ' + message);
 		}
 	}
@@ -432,7 +432,7 @@ if(!String.prototype.formatNum) {
 		data.day = 1;
 
 		// Getting list of days in a week in correct order. Works for month and week views
-		if(getExtentedOption(this, 'first_day') === 1) {
+		if(getExtentedOption(this, 'first_day') == 1) {
 			data.days_name = [this.locale.d1, this.locale.d2, this.locale.d3, this.locale.d4, this.locale.d5, this.locale.d6, this.locale.d0]
 		} else {
 			data.days_name = [this.locale.d0, this.locale.d1, this.locale.d2, this.locale.d3, this.locale.d4, this.locale.d5, this.locale.d6]
@@ -458,7 +458,7 @@ if(!String.prototype.formatNum) {
 		data.start = new Date(this.options.position.start.getTime());
 		data.lang = this.locale;
 
-
+		this.context.append(this.options.templates[this.options.view](data));
 		this._update();
 	};
 
@@ -466,7 +466,7 @@ if(!String.prototype.formatNum) {
 		var hour_split = str_hour.split(":");
 		var hour = parseInt(hour_split[0]);
 		var minutes = parseInt(hour_split[1]);
-		var leadingZero = leadingZero === 'undefined';
+		var leadingZero = leadingZero == 'undefined' ? true : false;
 		var hourLength = leadingZero ? 2 : 1;
 
 		var suffix = '';
@@ -480,7 +480,7 @@ if(!String.prototype.formatNum) {
 			}
 
 			hour = hour % 12;
-			if(hour === 0) {
+			if(hour == 0) {
 				hour = 12;
 			}
 		}
@@ -498,7 +498,7 @@ if(!String.prototype.formatNum) {
 		var time_split_count = 60 / time_split;
 		var time_split_hour = Math.min(time_split_count, 1);
 
-		if(((time_split_count >= 1) && (time_split_count % 1 !== 0)) || ((time_split_count < 1) && (1440 / time_split % 1 !== 0))) {
+		if(((time_split_count >= 1) && (time_split_count % 1 != 0)) || ((time_split_count < 1) && (1440 / time_split % 1 != 0))) {
 			$.error(this.locale.error_timedevide);
 		}
 
@@ -596,7 +596,7 @@ if(!String.prototype.formatNum) {
 		var time_start = this.options.time_start.split(":");
 		var time_split = parseInt(this.options.time_split);
 		var in_hour = 60 / time_split;
-		return (hour === 0) ? (in_hour - (parseInt(time_start[1]) / time_split)) : in_hour;
+		return (hour == 0) ? (in_hour - (parseInt(time_start[1]) / time_split)) : in_hour;
 	};
 
 	Calendar.prototype._hour = function(hour, part) {
@@ -624,7 +624,7 @@ if(!String.prototype.formatNum) {
 			var eventEnd    = new Date(parseInt(event.end));
 
 			event.start_day = new Date(parseInt(eventStart.getTime())).getDay();
-			if(first_day === 1) {
+			if(first_day == 1) {
 				event.start_day = (event.start_day + 6) % 7;
 			}
 			if((eventEnd.getTime() - eventStart.getTime()) <= 86400000) {
@@ -674,10 +674,10 @@ if(!String.prototype.formatNum) {
 		var cls = this.options.classes.months.outmonth;
 
 		var firstday = this.options.position.start.getDay();
-		if(getExtentedOption(this, 'first_day') === 2) {
+		if(getExtentedOption(this, 'first_day') == 2) {
 			firstday++;
 		} else {
-			firstday = (firstday === 0 ? 7 : firstday);
+			firstday = (firstday == 0 ? 7 : firstday);
 		}
 
 		day = (day - firstday) + 1;

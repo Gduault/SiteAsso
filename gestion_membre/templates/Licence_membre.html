@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% include 'barnav.html' %}
+<head>
+    <title>Informations Licences</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+<br>
+<body>
+ <br><br><br><br>
+
+<!--Tableau avec les informations des licences par personnes-->
+ <div class="container">
+  <h2>Informations Licences</h2>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th>civilité</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Nom Licence</th>
+          <th>Mode paiement</th>
+          <th>Montant</th>
+          <th>Nombre de chéques</th>
+          <th>Envoyer une notification</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tbody>
+      <tr>{% for adherent in adherents %}
+          <td>{{ adherent.CIVILITE }}</td>
+          <td>{{ adherent.NOM }}</td>
+          <td>{{ adherent.PRENOM }}</td>
+          <td>{{ assurance_complementaire.NOM_ASSURANCE }}</td>
+          <td>{{ assurance_complementaire.MODE_PAIEMENT }}</td>
+          <td>{{ assurance_complementaire.MONTANT }}</td>
+          <td>{{ assurance_complementaire.NB_CHEQUE }}</td>
+
+          <td><button type="button" class="btn btn-danger">Envoyer une notification</button></td>
+
+      </tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
