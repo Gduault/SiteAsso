@@ -7,6 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://rawgit.com/clineamb/bootstrap-drawer/master/dist/css/bootstrap-drawer.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="{% static 'js/lim.js' %}"></script>
+    <script src="{% static 'css/styles2.css' %}"></script>
     <title>GISSACG</title>
 </head>
 
@@ -34,12 +38,15 @@
                     </li>
                     <!-- Ajout d'un item dans le menu nommé Notification -->
                     <li class="nav-item">
-                    <!-- Ajout d'une pastille avec le noimbre de notification -->
-                        <a class="nav-link" href="{% url 'notif:notification' %}">Notification <span class="badge bg-primary">{{ NB_NOTIF }}</span></a>
+                    <!-- Ajout d'une pastille avec le nombre de notification -->
+                        <a class="nav-link" href="{% url 'notif:notification' %}"> Notification<span class="badge badge-notify">{{ NB_NOTIF }}</span></a>
                     </li>
                     {% endif %}
+
+
                     <!-- Barnav pour les secretaire -->
                     <!-- Si l'utilisateur fait partie du group secretaire seulement c'est items sera affiché -->
+
                     {% if request.user|has_group:"Secretaire" %}
                     <!-- Menu deroulant avec comme titre annuaire -->
                     <li class="nav-item dropdown">

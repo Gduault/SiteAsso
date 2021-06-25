@@ -5,7 +5,7 @@ from django.shortcuts import render
 
 from corp.models import Adherent
 
-
+# Pour avoir acces a la gestion de profil il faut etre connecter
 @login_required
 def gestiondeprofil(request):
     context = {

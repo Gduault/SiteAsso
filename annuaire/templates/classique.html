@@ -1,44 +1,51 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<!-- intégration de la navbar dans le fichier -->
 {% include 'barnav.html' %}
 <header>
+    <!-- intégration de la page contenant les bibliothèque JS/Bootstrap/CSS/JQuery -->
     {% include 'header.html' %}
     {% load static %}
+    <!-- integration du CSS de LA page -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </header>
 <br>
 <body>
- <br><br><br><br>
+
 <div class="container">
   <h2>Annuaire classique</h2>
+    <!-- création d'un tableau de donnée comportant les informations de base pour toutes la communautée du site -->
   <table class="table table-bordered table-striped" id="table_classique">
     <thead class="thead-dark">
       <tr>
-          <th><i class="fa fa-fw fa-sort"></i>Photo</th>
-          <th><i class="fa fa-fw fa-sort"></i>civilité</th>
-          <th><i class="fa fa-fw fa-sort"></i>Nom</th>
-          <th><i class="fa fa-fw fa-sort"></i>Prénom</th>
-          <th><i class="fa fa-fw fa-sort"></i>Rôle</th>
-          <th><i class="fa fa-fw fa-sort"></i>Clé du moulin</th>
-          <th><i class="fa fa-fw fa-sort"></i>Email</th>
+          <th><i class="fa fa-fw fa-sort"></i>Photo</th><!-- création d'une colonne 'Photo' -->
+          <th><i class="fa fa-fw fa-sort"></i>civilité</th><!-- création d'une colonne 'Civilité' -->
+          <th><i class="fa fa-fw fa-sort"></i>Nom</th><!-- création d'une colonne 'Nom' -->
+          <th><i class="fa fa-fw fa-sort"></i>Prénom</th><!-- création d'une colonne 'Prénom' -->
+          <th><i class="fa fa-fw fa-sort"></i>Rôle</th><!-- création d'une colonne 'Rôle' -->
+          <th><i class="fa fa-fw fa-sort"></i>Clé du moulin</th><!-- création d'une colonne 'Clé du moulin' -->
+          <th><i class="fa fa-fw fa-sort"></i>Email</th><!-- création d'une colonne 'Email' -->
       </tr>
     </thead>
     <tbody>
     <tbody>
+  <!-- boucle affectant les élements de la base récupérer dans le views dans une variable pour l'affichage d'élément -->
       <tr>{% for adherent in adherents %}
-          <td>{{ adherent.PHOTO }}</td>
-          <td>{{ adherent.CIVILITE }}</td>
-          <td>{{ adherent.NOM }}</td>
-          <td>{{ adherent.PRENOM }}</td>
-          <td>{{ adherent.ROLE_ADHERENT }}</td>
+          <td>{{ adherent.PHOTO }}</td><!-- affiche toutes les photos dans le tableau -->
+          <td>{{ adherent.CIVILITE }}</td><!-- affiche toutes les civilité dans le tableau -->
+          <td>{{ adherent.NOM }}</td><!-- affiche touts les noms dans le tableau -->
+          <td>{{ adherent.PRENOM }}</td><!-- affiche touts les prénoms dans le tableau -->
+          <td>{{ adherent.ROLE_ADHERENT }}</td><!-- affiche touts les rôles des adhérents dans le tableau -->
+          <!-- si la valeur de la table 'cle_moulin' = 'true' alors dans la colonne 'cle du moulin' on affiche 'oui' -->
              {% if adherent.CLE_MOULIN == True %}
                  <td>Oui</td>
+                 <!-- si la valeur de la table 'cle_moulin' = 'false' alors dans la colonne 'cle du moulin' on affiche 'non' -->
              {% else %}
                  <td>Non</td>
-             {% endif %}
-          <td>{{ adherent.EMAIL }}</td>
-      </tr>{% endfor %}
+             {% endif %}<!-- fin de la boucle if pour l'affichage correct de la valeur pour la clé du moulin -->
+          <td>{{ adherent.EMAIL }}</td><!-- affiche touts les emails dans le tableau -->
+      </tr>{% endfor %}<!-- fin de la boucle for -->
     </tbody>
   </table>
 </div>

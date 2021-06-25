@@ -129,15 +129,3 @@ class Type_Evenement(models.Model):
     NOM_EVENEMENT = models.CharField(max_length=30)
     # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications
 
-
-class carousel(models.Model):
-    #image insérez dans le caroussel
-    image = models.ImageField(upload_to='static/img/')
-    # titre potentiel écris en bas de l'image
-    title = models.CharField(max_length=250)
-    # sous titre potentiel écris en dessous du titre
-    sub_title = models.CharField(max_length=100)
-    # retourne la valeur du titre
-    def __str__(self):
-        return self.title
-    # Mise en place du modèle en abstract pour pouvoir le réutilisé des les autres applications

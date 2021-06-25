@@ -1,0 +1,23 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+
+@import url(//fonts.googleapis.com/icon?family=Material+Icons);
+
+.badge-notify{
+   background:red;
+   position:relative;
+   top: -20px;
+   left: -35px;
+   color:white;
+}
+
+.mat.badge-notify{
+   background:red;
+   position:relative;
+   top: -25px;
+   left: -20px;
+   color:white;
+}
+
+div{
+  margin:40px;
+}

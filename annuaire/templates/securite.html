@@ -1,9 +1,12 @@
+<!-- intégration de la navbar dans le fichier -->
 {% include 'barnav.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <header>
+    <!-- intégration de la page contenant les bibliothèque JS/Bootstrap/CSS/JQuery -->
     {% include 'header.html' %}
     {% load static %}
+    <!-- intégration du CSS de LA page en question -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </header>
 <br>
@@ -11,37 +14,41 @@
  <br><br><br><br>
 <div class="container">
   <h2>Annuaire de sécurité</h2>
+    <!-- création d'un tableau de donnée comportant les informations de base pour toutes la communautée du site -->
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th>Photo</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-          <th>Remarque.s</th>
-          <th>Allergie</th>
-          <th>Personne à contacté</th>
-          <th>Numéro de la personne à contacté</th>
-          <th>Médecin référent</th>
-          <th>Numéro du médecin</th>
+        <th>Photo</th><!-- création d'une colonne 'Photo' -->
+        <th>Nom</th><!-- création d'une colonne 'Nom' -->
+        <th>Prénom</th><!-- création d'une colonne 'Prenom' -->
+          <th>Remarque.s</th><!-- création d'une colonne 'Remarque.s' -->
+          <th>Allergie</th><!-- création d'une colonne 'Allergie' -->
+          <th>Personne à contacté</th><!-- création d'une colonne 'Personne à contacté' -->
+          <th>Numéro de la personne à contacté</th><!-- création d'une colonne 'Numéro de la personne à contacté' -->
+          <th>Médecin référent</th><!-- création d'une colonne 'Medecin referent' -->
+          <th>Numéro du médecin</th><!-- création d'une colonne 'Numéro du medecin referent' -->
       </tr>
     </thead>
     <tbody>
     <tbody>
+      <!-- boucle affectant les élements de la base récupérer dans le views dans une variable pour l'affichage d'élément -->
       <tr>{% for adherent in adherents %}
-        <td>{{ adherent.PHOTO }}</td>
-        <td>{{ adherent.NOM }}</td>
-        <td>{{ adherent.PRENOM }}</td>
-          <td>{{ adherent.REMARQUE }}</td>
+        <td>{{ adherent.PHOTO }}</td><!-- affiche toutes les photos dans le tableau -->
+        <td>{{ adherent.NOM }}</td><!-- affiche touts les Noms dans le tableau -->
+        <td>{{ adherent.PRENOM }}</td><!-- affiche touts les prénoms dans le tableau -->
+          <td>{{ adherent.REMARQUE }}</td><!-- affiche toutes les remarques dans le tableau -->
+          <!-- si la valeur de la table 'allergie' = 'true' alors dans la colonne 'allergie' on affiche 'oui' -->
           {% if adherent.ALLERGIE == True %}
                  <td>Oui</td>
+              <!-- si la valeur de la table 'allergie' = 'false' alors dans la colonne 'allergie' on affiche 'non' -->
              {% else %}
                  <td>Non</td>
-             {% endif %}
-          <td>{{ adherent.PER_CONTACT }}</td>
-          <td>{{ adherent.NUM_PER_CONTACT }}</td>
-          <td>{{ adherent.MDC_REF }}</td>
-          <td>{{ adherent.NUM_TEL_MDC }}</td>
-      </tr>{% endfor %}
+             {% endif %}<!-- fin de la boucle if -->
+          <td>{{ adherent.PER_CONTACT }}</td><!-- affiche toutes les personnes à contacté dans le tableau -->
+          <td>{{ adherent.NUM_PER_CONTACT }}</td><!-- affiche touts les numéros des personnes à contacté dans le tableau -->
+          <td>{{ adherent.MDC_REF }}</td><!-- affiche touts les medecins referents dans le tableau -->
+          <td>{{ adherent.NUM_TEL_MDC }}</td><!-- affiche touts les numéros des medecin referents dans le tableau -->
+      </tr>{% endfor %}<!-- fin de la boucle for -->
     </tbody>
   </table>
 </div>
