@@ -58,7 +58,7 @@ def notification(request):
     RenouCertif = 0
 
     # Variable que le tresorier met a une certaine valeur pour envoyer une notification
-    NotifassuranceTresorier = 0  # à lier a un bouton sur la page gestion de membre du tresorier
+    NotifassuranceTresorier = 1  # à lier a un bouton sur la page gestion de membre du tresorier
     # Variable que le tresorier met a une certaine valeur pour envoyer une notification
     NotiflicenceTresorier = 1  # à lier a un bouton sur la page gestion de membre du tresorier
 
