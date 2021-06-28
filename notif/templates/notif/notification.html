@@ -29,7 +29,7 @@
         {% endif %}
 
      <!-- Envoye un notification du tresorier pour rappeller de payer l'assurance -->
-        {% if compt3 == 4 %}
+        {% if compt3 == 1 %}
              <div class="alert alert-danger border border-dark" role="alert">
                  <!--Bouton pour ne plus afficher les notifs, le tresorier doit la renvoyer si il souhaite la réafficher envoye egalement un message vue aux tresorier si il clique dessus-->
                  <!-- pas fait -->
@@ -39,7 +39,7 @@
         {% endif %}
 
         <!-- Si la date du jour est superieur a la date d'alerteLicence, affiche un notification -->
-        {% if compt1 == 2 %}
+        {% if compt1 == 1 %}
              <div class="alert alert-primary border border-dark " role="alert">
             <!-- la notif disparait si la licence est renouveler-->
                Il vous reste moins d'un mois pour renouveler votre licence.
@@ -47,10 +47,19 @@
         {% endif %}
 
         <!-- Si la date de fin arriver est superieur a l'alerteCertif-->
-        {% if compt2 == 3 %}
+        {% if compt2 == 1 %}
              <div class="alert alert-primary border border-dark" role="alert">
                 <!-- la notif disparais si la certification medical est renouveler ou si la date du jour est supérieur à celle de la fin du certificat-->
                Votre certificat medical expire {{ Fcertif }}, il vous reste moins de 2 semaines pour la renouveler
+
+            </div>
+        {% endif %}
+
+        <!--si le membre ce connecte pour la 1er fois, il reçois ue notif pour l'inviter a remplir c'est information dans gestion de profile-->
+        {% if compt4 == 1 %}
+             <div class="alert alert-primary border border-dark" role="alert">
+                <!-- la notif disparais si toute les info dans gestion de profile sont completer (num fixe, adresse 2 et 3 peuvent ne pas etre remplis )-->
+               Veuiller remplir vos information dans votre gestion de profile
 
             </div>
         {% endif %}
