@@ -90,7 +90,7 @@ DATABASES = dict(default={
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'asso_plonge',
     'USER': 'root',
-    'PASSWORD': '12',
+    'PASSWORD': '',
     'HOST': 'localhost',
     'PORT': '3306',
 })
