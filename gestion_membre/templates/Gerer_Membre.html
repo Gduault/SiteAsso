@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% include 'barnav.html' %}
+
+    <!--Fichier pour la secretaire pour la gestion des membre-->
+
+<header>
+    {% include 'header.html' %}
+    {% load static %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</header>
+<br>
+
+
+<body>
+<div class="container">
+<h2><p class="text-center">Gestion des membres</h2></p>
+
+<!-- Tableaux avec l'identiter de tout les membres et des actions pouvant etre fait-->
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+          <th>civilité</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tbody>
+      <tr>{% for adherent in adherents %}
+          <td>{{ adherent.CIVILITE }}</td>
+          <td>{{ adherent.NOM }}</td>
+          <td>{{ adherent.PRENOM }}</td>
+          <td><button type="button" class="btn btn-danger">Ajouter Licence</button>
+              <button type="button" class="btn btn-danger">Ajouter Assurance</button>
+              <button type="button" class="btn btn-danger">Action oublier</button>
+              <button type="button" class="btn btn-danger">Supprimer utilisateur</button></td>
+      </tr>{% endfor %}
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
+

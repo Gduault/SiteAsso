@@ -5,6 +5,7 @@ import datetime
 from django.contrib import messages as message
 from corp.models import Adherent
 
+
 # Fichier avec les conditions pour envoyer les notifications et avec les variable de date correspondante
 
                                 # Difficulter a relier a la bdd
@@ -45,7 +46,7 @@ def notification(request):
 
 
     #compteur de notification
-    NB_NOTIF = 0
+    NB_NOTIF = 1
 
     #variable intermédiaire pour enclencher les notifictions et pouvoir integrer le compteur de notification
     compt = 0
@@ -83,8 +84,7 @@ def notification(request):
         if today < Fcertif:
             NB_NOTIF = NB_NOTIF + 1
             compt2 = 1
-
-       # si un des champs Nom, prenom, lieu de naissance, date de  naissance, tel. portable, Email, adresse 1, code postal, ville, pays, personne a contacter, num personne a contacter, medecin reférent ou num tel medecin referent est vide envoye une notif pour dire de remplir les information dans gestion de profile
+        # si un des champs Nom, prenom, lieu de naissance, date de  naissance, tel. portable, Email, adresse 1, code postal, ville, pays, personne a contacter, num personne a contacter, medecin reférent ou num tel medecin referent est vide envoye une notif pour dire de remplir les information dans gestion de profile
 
 
 

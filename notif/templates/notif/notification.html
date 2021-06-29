@@ -12,7 +12,7 @@
 <br><br>
     <!-- mettre au singulier si il n'y a qu'une notif-->
     <h2>Bienvenue sur la page des notification</h2>
-    {% if NB_NOTIF == 1 %}
+    {% if NB_NOTIF <= 1 %}
         <h5>Vous avez {{ NB_NOTIF }} notification </h5>
     {% else %}
         <h5>Vous avez {{ NB_NOTIF }} notifications </h5>
@@ -50,7 +50,7 @@
         {% if compt2 == 1 %}
              <div class="alert alert-primary border border-dark" role="alert">
                 <!-- la notif disparais si la certification medical est renouveler ou si la date du jour est supérieur à celle de la fin du certificat-->
-               Votre certificat medical expire {{ Fcertif }}, il vous reste moins de 2 semaines pour la renouveler
+               Votre certificat medical expire {{ Fcertif }}, il vous reste moins de 2 semaines pour la renouveler.
 
             </div>
         {% endif %}
@@ -59,8 +59,8 @@
         {% if compt4 == 1 %}
              <div class="alert alert-primary border border-dark" role="alert">
                 <!-- la notif disparais si toute les info dans gestion de profile sont completer (num fixe, adresse 2 et 3 peuvent ne pas etre remplis )-->
-               Veuiller remplir vos information dans votre gestion de profile
-
+               Veuiller remplir vos information dans votre gestion de profile.
+                 <a href="{% url 'accounts:gestion' %}">Modifier</a>
             </div>
         {% endif %}
 
