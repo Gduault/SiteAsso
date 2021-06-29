@@ -1,15 +1,17 @@
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render
 from datetime import datetime as date
 import datetime
 from django.contrib import messages as message
+from corp.models import Adherent
 
 
-# Create your views here.
+
 def notification(request):
 
     # Variable avec la date d'inscription de la licence
-    DLicence = "2020/06/18"  # à remplacer par la donnée correspondante dans la bdd
+    DLicence = Adherent.DATE_INSCRIPTION  # à remplacer par la donnée correspondante dans la bdd
     # Je dit que le format de la date sera année/mois/jours
     Dlicence = datetime.datetime.strptime(DLicence, "%Y/%m/%d")
 
@@ -73,6 +75,8 @@ def notification(request):
         "compt1": compt1,
         "compt2": compt2,
         "compt3": compt3,
+        'adh': Adherent.objects.all(),
+        'Adh_id': 'adh'
     }
 
     return render(request, 'notif/notification.html', context)
