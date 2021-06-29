@@ -24,7 +24,7 @@
           <th>civilité</th>
           <th>Nom</th>
           <th>Prénom</th>
-          <th>Action</th>
+          <th class="text-center">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -33,10 +33,11 @@
           <td>{{ adherent.CIVILITE }}</td>
           <td>{{ adherent.NOM }}</td>
           <td>{{ adherent.PRENOM }}</td>
-          <td><button type="button" class="btn btn-danger">Ajouter Licence</button>
-              <button type="button" class="btn btn-danger">Ajouter Assurance</button>
-              <button type="button" class="btn btn-danger">Action oublier</button>
-              <button type="button" class="btn btn-danger">Supprimer utilisateur</button></td>
+          <td class="d-grid gap-1 col-5 mx-auto ">
+              <button type="button" class="btn btn-danger border border-dark btn-sm mr-3">Ajouter Licence</button>
+              <button type="button" class="btn btn-danger border border-dark btn-sm mr-3">Ajouter Assurance</button>
+              <button type="button" class="btn btn-danger border border-dark btn-sm mr-3" >Location</button>
+              <button type="button" class="btn btn-danger border border-dark btn-sm mr-3">Supprimer utilisateur</button></td>
       </tr>{% endfor %}
     </tbody>
   </table>
