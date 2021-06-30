@@ -1,31 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% load static %}
-
-<head>
-
-    <!-- intégration de la barnav -->
-    {% include 'barnav.html' %}
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-
-    <!-- Icons font CSS-->
-    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
-    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-        {% load static %}
+<header>
+    <!-- intégration de la page contenant les bibliothèque JS/Bootstrap/CSS/JQuery -->
+    {% include 'header.html' %}
+      {% include 'barnav.html' %}
+    {% load static %}
     <!-- integration du CSS de LA page -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    <!-- Vendor CSS-->
-    <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
-    <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-
-
-</head>
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+</header>
 
 <body>
 
@@ -51,7 +35,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -66,7 +49,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -74,7 +57,6 @@
                                     <h3></h3>
                                 </div>
                             </div>
-                            <div class="dropdown-divider"></div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Numéro de téléphone portable : {{ adhe.TEL_PORT }}</label>
@@ -82,7 +64,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -97,7 +78,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -105,7 +85,6 @@
                                     <h3></h3>
                                 </div>
                             </div>
-                            <div class="dropdown-divider"></div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Adhésion : {{ adhe.ADHESION }}</label>
@@ -113,7 +92,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -175,17 +153,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Jquery JS-->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <!-- Vendor JS-->
-    <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
-    <script src="{% static 'vendor/datepicker/moment.min.js' %}"></script>
-    <script src="{% static 'vendor/datepicker/daterangepicker.js' %}"></script>
-
-    <!-- Main JS-->
-    <script src="{% static 'js/global.js' %}"></script>
-
 {% endfor %}
 </body>
 
