@@ -6,9 +6,9 @@
 </header>
 {% block content %}
 <div class="clearfix">
-	<a class="btn btn-info right mr-2" href="{% url 'evenement:calendar' %}?{{ next_month }} ">Mois suivant >> </a>
-    <a class="btn btn-info right mr-2" href="{% url 'evenement:calendar' %}?{{ prev_month }}"> << Mois precedent </a>
-    <a class="btn btn-info right mr-2" href="{% url 'evenement:event_new' %}"> + Nouvelle evenement </a>
+	<a class="btn btn-info align-items-center mr-2" href="{% url 'evenement:calendar' %}?{{ next_month }} ">Mois suivant >> </a>
+    <a class="btn btn-info align-items-center mr-2" href="{% url 'evenement:calendar' %}?{{ prev_month }}"> << Mois precedent </a>
+    <a class="btn btn-info align-items-center mr-2" href="{% url 'evenement:event_new' %}"> + Nouvelle evenement </a>
 </div>
 <div style="color: blue;">
     {{ calendar }}
