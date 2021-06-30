@@ -9,6 +9,10 @@
     {% include 'barnav.html' %}
     <!-- Required meta tags-->
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
     <!-- Icons font CSS-->
     <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
@@ -23,7 +27,8 @@
     <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" media="all">
 
 </head>
 
@@ -51,7 +56,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -66,7 +70,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -74,7 +77,6 @@
                                     <h3></h3>
                                 </div>
                             </div>
-                            <div class="dropdown-divider"></div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Numéro de téléphone portable : {{ adhe.TEL_PORT }}</label>
@@ -82,7 +84,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -97,7 +98,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -105,7 +105,6 @@
                                     <h3></h3>
                                 </div>
                             </div>
-                            <div class="dropdown-divider"></div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Adhésion : {{ adhe.ADHESION }}</label>
@@ -113,7 +112,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown-divider"></div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">

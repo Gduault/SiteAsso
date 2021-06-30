@@ -78,7 +78,7 @@ class EventEdit(generic.UpdateView):
 @login_required
 def event_details(request, event_id):
     event = Event.objects.get(id=event_id)
-    eventmember = EventMember.objects.filter(event=event)
+    eventmember = EventMember.objects.filter(id=event_id)
     context = {
         'event': event,
         'eventmember': eventmember
