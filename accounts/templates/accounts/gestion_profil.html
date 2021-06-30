@@ -1,139 +1,43 @@
-<!-- Ajout de la barnav a la page gestion profil -->
-    {% include 'barnav.html' %}
+{% load crispy_forms_filters %}
+{% include 'barnav.html' %}
 <header>
     {% include 'header.html' %}
     {% load static %}
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-<!-- Debut du block body -->
+</header>
 {% block body %}
-
-    <!-- Saut de ligne  -->
-<br>
-<div class="container">
-
-    <div class="col-md-8 mx-auto">
-        <h3 class="text-center mb-3">Modifier mon Profil</h3>
-        <p>Renseignez vos informations personnelles pour le bon fonctionnement de l'application.</p>
-        <br>
-        <form method="post" action="{% url 'accounts:gestion' %}" enctype="multipart/form-data"  class="needs-validation" novalidate>
-            {% csrf_token %}
-            {% if status %}
-                <div class="alert alert-primary">{{status}}</div>
-            {% endif %}
-            {% for Adh_id in adh %}
-            {% if user.id == Adh_id.id %}
-            <div class="form-row">
-                <div class="col">
-                    <label for="nom">Nom</label>
-                    <input type="text" class="form-control" id="nom" name="nom" value="{{Adh_id.NOM}}" placeholder="Ex: Allan">
-                </div>
-                <div class="col">
-                    <label for="prenom">Prenom</label>
-                    <input type="text" class="form-control" id="prenom" name="prenom" value="{{Adh_id.PRENOM}}" placeholder="Ex: Joe">
-                </div>
-                <div class="col">
-                    <label for="lieudenaissance">Lieu de naissance</label>
-                    <input type="text" class="form-control" id="lieudenaissance" name="lieudenaissance" value="{{ Adh_id.LIEU_NAISSANCE}}" placeholder="Ex: Rennes ">
-                </div>
-                <div class="col">
-                    <label for="Datedenaissance">Date de naissance</label>
-                    <input type="text" class="form-control" id="Datedenaissance" name="Datedenaissance" value="{{ Adh_id.DATE_NAISSANCE}}" placeholder="Ex: 2001-04-28">
-                </div>
+    <br><br><br><br><br>
+    <div class="container">
+     <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h3 class="text-center mb-3">Mettre a jour votre profil</h3>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% if form.subject.errors %}
+                    {% for error in form.subject.errors %}
+                        <p class="text-danger"><strong>{{ error }}</strong></p>
+                    {% endfor %}
+                {% endif %}
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.help_text %}
+                            <p class="help">{{ field.help_text }}</p>
+                        {% endif %}
+                        {% if field.errors %}
+                            {% for errors in field.errors %}
+                                <p class="text-danger"><strong>{{ error }}</strong></p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            <div class="text-center">
+                <button type="submit" class="btn btn-secondary">Mettre a jour</button>
             </div>
-
-            <br><br>
-            <div class="row">
-                <div class="col">
-                    <label for="Tel_fix">Telephone Fix (Facultatif)</label>
-                    <input type="text" class="form-control" id="Tel_fix" name="Tel_fix" value="{{ Adh_id.TEL_FIX}}" placeholder="Ex: 0601020304">
-                </div>
-                <div class="col">
-                    <label for="Tel_por">Telephone portable</label>
-                    <input type="text" class="form-control" id="Tel_por" name="Tel_port" value="{{ Adh_id.TEL_PORT}}" placeholder="Ex: 0601020304">
-                </div>
-                <div class="col">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" value="{{ user.email}}" placeholder="Ex: joe.allan@gmail.com ">
-                </div>
-            </div>
-
-            <br><br>
-            <div class="row">
-                <h3 class="text-center mb-3">Adresse</h3>
-                <div class="col">
-                    <br>
-                    <label for="add1">Adresse 1</label>
-                    <input type="text" class="form-control" id="add1" name="add1" value="{{ Adh_id.ADD_1}}" placeholder="Ex: 3 rue de Paris">
-                </div>
-                <div class="col">
-                    <br>
-                    <label for="add2">Adresse 2 (Facultatif)</label>
-                    <input type="text" class="form-control" id="add2" name="add2" value="{{ Adh_id.ADD_2}}" placeholder="Ex: 3 rue de Paris">
-                </div>
-                <div class="col">
-                    <br>
-                    <label for="add3">Adresse 3 (Facultatif)</label>
-                    <input type="text" class="form-control" id="add3" name="add3" value="{{ Adh_id.ADD_3}}" placeholder="Ex: 3 rue de Paris">
-                </div>
-            </div>
-
-            <br><br>
-            <div class="row">
-                <div class="col">
-                    <label for="cp">Code postal</label>
-                    <input type="text" class="form-control" id="cp" name="cp" value="{{ Adh_id.CP}}" placeholder="22600">
-                </div>
-                <div class="col">
-                    <label for="ville">Ville</label>
-                    <input type="text" class="form-control" id="ville" name="ville" value="{{ Adh_id.VILLE}}" placeholder="Ex: Paris">
-                </div>
-                <div class="col">
-                    <label for="pays">Pays</label>
-                    <input type="text" class="form-control" id="pays" name="pays" value="{{ Adh_id.PAYS}}" placeholder="Ex: France">
-                </div>
-            </div>
-
-            <br><br>
-            <div class="row">
-                <h3 class="text-center mb-3">Urgence</h3>
-                <div class="col">
-                    <br>
-                    <label for="nomcontact">Nom de la personne à contacter</label>
-                    <input type="text" class="form-control" id="nomcontact" name="nomcontact" value="{{ Adh_id.PER_CONTACT}}" placeholder="Ex: Joe">
-                </div>
-                <div class="col">
-                    <br>
-                    <label for="numcontact">Numero de la personne à contacter </label>
-                    <input type="text" class="form-control" id="numcontact" name="numcontact" value="{{ Adh_id.NUM_PER_CONTACT}}" placeholder="0601020304">
-                </div>
-            </div>
-
-            <br><br>
-            <div class="row">
-                <div class="col">
-                    <label for="nommdc">Nom du médecin à contacter</label>
-                    <input type="text" class="form-control" id="nommdc" name="nommdc" value="{{ Adh_id.MDC_REF}}" placeholder="Ex: Joe">
-                </div>
-                <div class="col">
-                    <label for="nummdc">Numero du médecin à contacter </label>
-                    <input type="text" class="form-control" id="nummdc" name="nummdc" value="{{ Adh_id.NUM_TEL_MDC}}" placeholder="0601020304">
-                </div>
-            </div>
-            <br><br>
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Mettre a jour</button>
-            </div>
-        </form>
-        {% endif %}
-
-        {% endfor %}
-
+            </form>
+        </div>
     </div>
-
-</div>
-<div class="col md-4"></div>
-<br>
-<br>
-{% include 'footer.html' %}
-
+    <div class="col md-4"></div>
+   </div>
 {% endblock body %}

@@ -1,18 +1,22 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from accounts.forms import AdherentForm
 from corp.models import Adherent
 
+
 # Pour avoir acces a la gestion de profil il faut etre connecter
-@login_required
-def gestiondeprofil(request):
+
+
+
+def update_adherent(request, id_adh):
+    adh = Adherent.objects.get(id=id_adh)
+    form = AdherentForm(request.POST or None, instance=adh)
+    if form.is_valid():
+        form.save()
+        return redirect('corp:index')
     context = {
-        'adh': Adherent.objects.all(),
-        'Adh_id': 'adh'
+        'adh': adh,
+        'form': form,
     }
     return render(request, 'accounts/gestion_profil.html', context)
-
-
-
