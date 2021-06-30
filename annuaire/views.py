@@ -30,7 +30,7 @@ def detail(request, id_adh):
     # recupere l'id de la classe Adherent pour la stocké dans une variable
     adh = Adherent.objects.get(id=id_adh)
     # recupere tout les éléments de la classe Adherent
-    adhe = Adherent.objects.all()
+    adhe = Adherent.objects.all().filter(id=id_adh)
     # recupere les éléments de la classe Assurance_complémentaire à l'aide d'une jointure avec l'id de l'adherent
     ac = Assurance_Complementaire.objects.filter(adherent=adh)
     # recupere les éléments de la classe Certif_medical à l'aide d'une jointure avec l'id de l'adherent

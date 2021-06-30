@@ -60,7 +60,7 @@
              <div class="alert alert-primary border border-dark" role="alert">
                 <!-- la notif disparais si toute les info dans gestion de profile sont completer (num fixe, adresse 2 et 3 peuvent ne pas etre remplis )-->
                Veuiller remplir vos information dans votre gestion de profile.
-                 <a href="{% url 'accounts:gestion' %}">Modifier</a>
+                 <a href="{% url 'accounts:gestion' user.id  %}">Modifier</a>
             </div>
         {% endif %}
 
