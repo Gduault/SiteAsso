@@ -49,9 +49,7 @@ INSTALLED_APPS = [
     'annuaire.apps.AnnuaireConfig',
     'notif.apps.NotifConfig',
     'gestion_membre.apps.GestionMembreConfig',
-    'crispy_forms',
 ]
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
