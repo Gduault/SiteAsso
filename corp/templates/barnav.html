@@ -88,7 +88,6 @@
                         <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                     </div>
                 </li>
-                    </ul>
                     <!-- Debut du menu deroulant de type dropdown pour le tresorier-->
                 <li class="nav-item dropdown">
                 <!-- Titre du menu deroulant ici Gestion membre -->
@@ -102,6 +101,7 @@
                         <a class="dropdown-item" href="{% url 'gestion:assuranceMembre' %}">Assurance</a>
                     </div>
                 </li>
+                    </ul>
                     <!-- Fin du changement de menu pour le tresorier -->
                 {% endif %}
 
@@ -120,6 +120,7 @@
                         <a class="dropdown-item" href="{% url 'securite' %}">Sécurité</a>
                     </div>
                 </li>
+                    </ul>
                     <!-- Fin du changement de menu pour le directeur de plonge -->
                 {% endif %}
 
@@ -140,6 +141,7 @@
                         <a class="dropdown-item" href="{% url 'general' %}">Générale</a>
                     </div>
                 </li>
+                    </ul>
                     <!-- Fin du changement de menu pour le president-->
                 {% endif %}
 
@@ -157,7 +159,7 @@
                         <a class="dropdown-item" href="{% url 'classique' %}">Classique</a>
                     </div>
                 </li>
-
+            </ul>
             </div>
             {% endif %}
 

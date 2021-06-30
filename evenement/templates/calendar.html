@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% include 'base.html' %}
 <header>
     {% include 'header.html' %}
     {% load static %}
@@ -6,11 +6,11 @@
 </header>
 {% block content %}
 <div class="clearfix">
-	<a class="btn btn-primary mr-2" href="{% url 'evenement:calendar' %}?{{ next_month }} ">Mois suivant >> </a>
-    <a class="btn btn-primary mr-2" href="{% url 'evenement:calendar' %}?{{ prev_month }}"> << Mois precedent </a>
-    <a class="btn btn-outline-primary right mr-2" href="{% url 'evenement:event_new' %}"> + Nouvel evenement </a>
+	<a class="btn btn-info align-items-center mr-2" href="{% url 'evenement:calendar' %}?{{ next_month }} ">Mois suivant >> </a>
+    <a class="btn btn-info align-items-center mr-2" href="{% url 'evenement:calendar' %}?{{ prev_month }}"> << Mois precedent </a>
+    <a class="btn btn-info align-items-center mr-2" href="{% url 'evenement:event_new' %}"> + Nouvelle evenement </a>
 </div>
-<div style="color: springgreen;">
+<div style="color: blue;">
     {{ calendar }}
 </div>
 {% endblock %}

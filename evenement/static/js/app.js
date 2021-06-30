@@ -3,7 +3,6 @@
 	"use strict";
 
 	var options = {
-		events_source: 'events.json.php',
 		view: 'month',
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,

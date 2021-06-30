@@ -5,14 +5,14 @@
 <header>
     {% include 'header.html' %}
     {% load static %}
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </header>
-<br><br><br>
+<br><br><br><br>
 <h1 class="text-center">Evenement</h1>
 <body>
 {% block content %}
   {% endblock %}
-  {% block script %}
+  {% block script %}`
   {% endblock %}
 </body>
 </html>
