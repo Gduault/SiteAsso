@@ -16,7 +16,7 @@ class Event(models.Model):
     def get_absolute_url(self):
         return reverse('evenement:event-detail', args=(self.id,))
 
-    @property
+
     def get_html_url(self):
         url = reverse('evenement:event-detail', args=(self.id,))
         return f'<a href="{url}"> {self.title} </a>'

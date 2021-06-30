@@ -8,7 +8,6 @@ Event Details
     <div class="container">
         <div class="clearfix">
             <a class="btn btn-primary left" href="{% url 'evenement:calendar' %}"> Calendrier </a>
-            <a class="btn btn-info right mr-2" href="{% url 'evenement:event_edit' event.pk %}"> Editer Evenement </a>
         </div>
         
         <div class="clearfix">
@@ -48,3 +47,14 @@ Event Details
         </table>
     </div>
 {% endblock %}
+{% block title %}
+Supprimer l'évenement
+{% endblock %}
+
+{% block content %}
+    <h1>Supprimer</h1>
+    <form action="" method="post">{% csrf_token %}
+        <p>Voulez vous vraiment supprimez cet évenement</p>
+        <button class="btn btn-danger ml-2" type="submit">Confirmer</button>
+    </form>
+{% endblock content %}
