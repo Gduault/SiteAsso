@@ -56,3 +56,8 @@ def licenceMembre(request):
 
     return render(request, 'Licence_membre.html', {'adherents': adherent}, )
 
+def gererMembre(request):
+    adherent = Adherent.objects.all()
+
+    return render (request, 'Gerer_Membre.html', {'adherents': adherent}, )
+
