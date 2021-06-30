@@ -24,6 +24,7 @@
           <th>civilité</th>
           <th>Nom</th>
           <th>Prénom</th>
+          <th>Clé moulin</th>
           <th class="text-center">Action</th>
       </tr>
     </thead>
@@ -33,6 +34,14 @@
           <td>{{ adherent.CIVILITE }}</td>
           <td>{{ adherent.NOM }}</td>
           <td>{{ adherent.PRENOM }}</td>
+          <td>
+              <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+             </div>
+              {% if  %} {{ adherent.CLE_MOULIN }} = true
+              {% else %} {{ adherent.CLE_MOULIN }} = false
+              {% endif %}
+              </td>
           <td class="d-grid gap-1 col-6 mx-auto ">
               <button type="button" class="btn btn-danger border border-dark btn-sm mr-3">Ajouter Licence</button>
               <button type="button" class="btn btn-danger border border-dark btn-sm mr-3">Ajouter Assurance</button>
