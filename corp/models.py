@@ -58,7 +58,7 @@ class Adherent(models.Model):
     CLE_MOULIN = models.BooleanField(default=False)
     # Un adherent peut avoir different fonction tel que responsable compresseur, ou materiel, technique etcc
     FONCTION = models.CharField(max_length=30)
-    # ePar default il ne fait pas parti du
+    # Membre du conseil administratif
     MBCA = models.BooleanField(default=False)
     # Le numero de licence est de type char car il peut contenir des numeros et des lettres
     NUM_LICENCE = models.CharField(max_length=20)
