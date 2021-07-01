@@ -32,6 +32,8 @@
 
 </head>
 
+<!--information de la page detail affiche dans l'annuaire general-->
+
 <body>
 
 {% for adhe in adhe %}
@@ -40,8 +42,28 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title"> detail du membre {{ adhe.NOM }} {{ adhe.PRENOM }}</h2>
+                    <h2 class="title"> <u>Detail du membre {{ adhe.NOM }} {{ adhe.PRENOM }}</u></h2>
                     <form method="POST">
+
+                        <h3><u>Information général :</u></h3><br>
+
+                        <!--affichage des information a 2 par ligne -->
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">civilité : {{ adhe.CIVILITE }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Photo : {{ adhe.PHOTO }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -56,6 +78,24 @@
                                 </div>
                             </div>
                         </div>
+
+
+                            <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Email : {{ adhe.EMAIL }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Status : {{ adhe.STATUS  }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -65,25 +105,29 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">civilité : {{ adhe.CIVILITE }}</label>
+                                    <label class="label">lieu de naissance : {{ adhe.LIEU_NAISSANCE }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-space">
+
+
+                            <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Email : {{ adhe.EMAIL }}</label>
+                                    <label class="label"> Numero fixe : {{ adhe.TEL_FIX }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Numéro de téléphone portable : {{ adhe.TEL_PORT }}</label>
+                                    <label class="label">Numero de portable : {{ adhe.ADDTEL_PORT_2}}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -93,11 +137,28 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Adresse 2 : {{ adhe.ADD_2}}</label>
+                                    <label class="label">Pays : {{ adhe.PAYS }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                         </div>
+
+
+                         <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Adresse 2 : {{ adhe.ADD_2 }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Ville : {{ adhe.VILLE }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -107,25 +168,47 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Adhésion : {{ adhe.ADHESION }}</label>
+                                    <label class="label">Code postal : {{ adhe.CP }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                         </div>
+
+
+                              <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Remarque spécifique : {{ adhe.REMARQUE }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"></label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <h3><u>Inscription :</u></h3> <br><br>
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Allergie : {{ adhe.ALLERGIE }}</label>
+                                    <label class="label">Numero de licence : {{ adhe.NUM_LICENCE }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Clé du moulin : {{ adhe.CLE_MOULIN }}</label>
+                                    <label class="label">Type de licence : {{ adhe.TYPE_LICENCE }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -135,38 +218,301 @@
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Code postal : {{ adhe.CP}}</label>
+                                    <label class="label">Adhesion : {{ adhe.ADHESION }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-space">
+
+
+                             <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Adresse 3 : {{ adhe.ADD_3 }}</label>
+                                    <label class="label">Date d'inscription : {{ adhe.DATE_INSCRIPTION }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Adhésion : {{ adhe.ADHESION }}</label>
+                                    <label class="label"></label>
                                     <h3></h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="row row-space">
+
+
+                             <h3><u>Administratif :</u></h3><br><br>
+
+                             <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Allergie : {{ adhe.ALLERGIE }}</label>
+                                    <label class="label">Membre du conseil administratif : {{ adhe.MBCA }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Clé du moulin : {{ adhe.CLE_MOULIN }}</label>
+                                    <label class="label">Role : {{ adhe.ROLE_ADHERENT }}</label>
                                     <h3></h3>
                                 </div>
                             </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Clé moulin :
+                                        {% if adherent.CLE_MOULIN == True %}
+                                            <td>Oui</td>
+                                         <!-- si la valeur de la table 'cle_moulin' = 'false' alors dans la colonne 'cle du moulin' on affiche 'non' -->
+                                        {% else %}
+                                            <td>Non</td>
+                                        {% endif %}
+                                        <!-- fin de la boucle if pour l'affichage correct de la valeur pour la clé du moulin -->
+                                    </label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Fonction : {{ adhe.FONCTION }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <h3><u>Sécuriter :</u></h3><br><br>
+
+                              <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Allergique a l'aspirine :
+                                      {% if adherent.ALLERGIE == True %}
+                                            <td>Oui</td>
+                                        {% else %}
+                                            <td>Non</td>
+                                        {% endif %}
+                                    </label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"></label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Personne à contacter: {{ adhe.PER_CONTACT }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Numéro Personne à contacter : {{ adhe.NUM_PER_CONTACT}}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Médecin réferent: {{ adhe.MDC_REF }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">numéro du Médecin réferent: {{ adhe.NUM_TEL_MDC }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                              <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">debut du certificat medical: {{ cm.D_DEBUT }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">fin du certificat medical: {{ cm.D_FIN }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <h3><u>Licence :</u></h3><br><br>
+
+                              <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date de réglement : {{ adhe.DATE_RGL }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Mode de paiement : {{ adhe.MODE_PAIEMENT }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Nombre de cheque : {{ adhe.NB_CHEQUE }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Montant : {{ adhe.MONTANT }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Licence payer :
+                                     {% if adherent.LICENCE == True %}
+                                            <td>Oui</td>
+                                        {% else %}
+                                            <td>Non</td>
+                                        {% endif %}
+                                    </label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"></label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <h3><u>Assurance :</u></h3><br><br>
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Nom assurance : {{ ac.NOM_ASSURANCE }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Date de réglement : {{ ac.DATE_REGLEMENT }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Mode de paiement : {{ ac.MODE_PAIEMENT }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Nombre de chéque : {{ ac.NB_CHEQUE }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Montant : {{ ac.MONTANT }}</label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"></label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <h3><u>Location :</u></h3><br><br>
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">louer un detenteur :
+                                     {% if adherent.LOC_DETENTEUR == True %}
+                                            <td>Oui</td>
+                                        {% else %}
+                                            <td>Non</td>
+                                        {% endif %}
+                                    </label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">louer un STAB :
+                                     {% if adherent.LOC_STAB == True %}
+                                            <td>Oui</td>
+                                        {% else %}
+                                            <td>Non</td>
+                                        {% endif %}
+                                    </label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                             <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">louer un BLOC :
+                                     {% if adherent.LOC_BLOC == True %}
+                                            <td>Oui</td>
+                                        {% else %}
+                                            <td>Non</td>
+                                        {% endif %}
+                                    </label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label"></label>
+                                    <h3></h3>
+                                </div>
+                            </div>
+                        </div>
+
+
                         </div>
                     </form>
                 </div>
