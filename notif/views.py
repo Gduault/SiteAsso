@@ -86,7 +86,7 @@ def notification(request):
             compt2 = 1
         # si un des champs Nom, prenom, lieu de naissance, date de  naissance, tel. portable, Email, adresse 1, code postal, ville, pays, personne a contacter, num personne a contacter, medecin reférent ou num tel medecin referent est vide envoye une notif pour dire de remplir les information dans gestion de profile
 
-        #Pas fait difficulter avec la base de donnée. Fonctionnement simuler avec compt4 = 1 et NB_NOTIF = 1 mis a 1 ( normalement a 0)
+        #Pas fait, difficulter avec la base de donnée. Fonctionnement simuler avec compt4 = 1 et NB_NOTIF = 1 mis a 1 ( normalement a 0)
 
 
     context = {
