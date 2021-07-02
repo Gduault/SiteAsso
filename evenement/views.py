@@ -38,13 +38,7 @@ def next_month(d):
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
     return month
 
-class event_delete(request):
-    form = EventForm(request.POST or None)
-    if request.POST and form.is_valid():
-        title = form.cleaned_data['title']
-        description = form.cleaned_data['description']
-        start_time = form.cleaned_data['start_time']
-        end_time = form.cleaned_data['end_time']
+
 
 class CalendarView(LoginRequiredMixin, generic.ListView):
     login_url = 'signup'
