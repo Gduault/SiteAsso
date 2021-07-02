@@ -1,6 +1,7 @@
 from datetime import datetime, date
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
+from django.template.context_processors import request
 from django.views import generic
 from django.utils.safestring import mark_safe
 from datetime import timedelta
@@ -36,6 +37,14 @@ def next_month(d):
     next_month = last + timedelta(days=1)
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
     return month
+
+class event_delete(request):
+    form = EventForm(request.POST or None)
+    if request.POST and form.is_valid():
+        title = form.cleaned_data['title']
+        description = form.cleaned_data['description']
+        start_time = form.cleaned_data['start_time']
+        end_time = form.cleaned_data['end_time']
 
 class CalendarView(LoginRequiredMixin, generic.ListView):
     login_url = 'signup'
