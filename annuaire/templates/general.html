@@ -2,14 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <header>
+    <!-- intégration de la page contenant les bibliothèque JS/Bootstrap/CSS/JQuery -->
     {% include 'header.html' %}
     {% load static %}
+    <!-- intégration du CSS de LA page en question -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </header>
 <br>
 <body>
 
-<div class="table-responsive">
+<div class="container">
   <h2>Annuaire général</h2>
     <!-- création d'un tableau de donnée comportant les informations de base pour toutes la communautée du site -->
   <table class="table">
@@ -41,4 +43,6 @@
   </table>
 </div>
 </body>
+<br><br><br>
+{% include 'footer.html' %}
 </html>

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}
-Event Details
-{% endblock %}
-
+{% include 'barnav.html' %}
+<header>
+    {% include 'header.html' %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</header>
 {% block content %}
     <div class="container">
         <div class="clearfix">
