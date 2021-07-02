@@ -170,19 +170,19 @@ h6 {
 }
 
 .bg-gra-01 {
-  background: -webkit-gradient(linear, left bottom, left top, from(blue), to(whitesmoke));
-  background: -webkit-linear-gradient(bottom, blue 0%, whitesmoke 100%);
-  background: -moz-linear-gradient(bottom, blue 0%, whitesmoke 100%);
-  background: -o-linear-gradient(bottom, blue 0%, whitesmoke 100%);
-  background: linear-gradient(to top, blue 0%, whitesmoke 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(springgreen), to(whitesmoke));
+  background: -webkit-linear-gradient(bottom, springgreen 0%, whitesmoke 100%);
+  background: -moz-linear-gradient(bottom, springgreen 0%, whitesmoke 100%);
+  background: -o-linear-gradient(bottom, springgreen 0%, whitesmoke 100%);
+  background: linear-gradient(to top, springgreen 0%, whitesmoke 100%);
 }
 
 .bg-gra-02 {
-  background: -webkit-gradient(linear, left bottom, right top, from(blue), to(whitesmoke));
-  background: -webkit-linear-gradient(bottom left, blue 0%, whitesmoke 100%);
-  background: -moz-linear-gradient(bottom left, blue 0%, whitesmoke 100%);
-  background: -o-linear-gradient(bottom left, blue 0%, whitesmoke 100%);
-  background: linear-gradient(to top right, blue 0%, whitesmoke 100%);
+  background: -webkit-gradient(linear, left bottom, right top, from(springgreen), to(whitesmoke));
+  background: -webkit-linear-gradient(bottom left, springgreen 0%, whitesmoke 100%);
+  background: -moz-linear-gradient(bottom left, springgreen 0%, whitesmoke 100%);
+  background: -o-linear-gradient(bottom left, springgreen 0%, whitesmoke 100%);
+  background: linear-gradient(to top right, springgreen 0%, whitesmoke 100%);
 }
 
 /* ==========================================================================
